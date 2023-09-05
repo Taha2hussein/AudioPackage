@@ -1,0 +1,523 @@
+{
+    "header": {
+        "headerTitle": "Check24 Shape Compararison",
+        "headerDescription": "List of geometric products"
+    },
+    "filters": [
+"Alle",
+"Verfügbar",
+"Vorgemerkt"
+],
+    "products": [
+        {
+            "name": "Yellow Triangle",
+            "type": "Triangle",
+            "id": 1,
+            "color": "Yellow",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/08.png",
+            "colorCode": "FFECB3",
+            "available": true,
+            "releaseDate": 1460629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+            "rating": 2.17,
+            "price": {
+                "value": 225.91,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Blue Circle",
+            "type": "Circle",
+            "id": 2,
+            "color": "Blue",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/01.png",
+            "colorCode": "BBDEFB",
+            "available": false,
+            "releaseDate": 1459629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,",
+            "rating": 1,
+            "price": {
+                "value": 281.51,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Blue Circle",
+            "type": "Circle",
+            "id": 3,
+            "color": "Blue",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/01.png",
+            "colorCode": "BBDEFB",
+            "available": false,
+            "releaseDate": 1458629605,
+            "description": "Lorem ipsum",
+            "longDescription": "Lorem ipsum\n\nLorem ipsum\n\nLorem ipsum\nLorem ipsum",
+            "rating": 4.71,
+            "price": {
+                "value": 1610.35,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Green Circle",
+            "type": "Circle",
+            "id": 4,
+            "color": "Green",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/01.png",
+            "colorCode": "C8E6C9",
+            "available": true,
+            "releaseDate": 1457629605,
+            "description": "Lorem ipsum",
+            "longDescription": "Lorem ipsum\n\nLorem ipsum\n\nLorem ipsum\nLorem ipsum",
+            "rating": 2.8,
+            "price": {
+                "value": 715.24,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Green Square",
+            "type": "Square",
+            "id": 5,
+            "color": "Green",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/04.png",
+            "colorCode": "C8E6C9",
+            "available": false,
+            "releaseDate": 1456629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur\n\nLorem ipsum dolor sit amet, consetetur\n\nLorem ipsum dolor sit amet, consetetur\nLorem ipsum dolor sit amet, consetetur",
+            "rating": 4.48,
+            "price": {
+                "value": 528.31,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Red Square",
+            "type": "Square",
+            "id": 6,
+            "color": "Red",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/04.png",
+            "colorCode": "ffCDD2",
+            "available": false,
+            "releaseDate": 1455629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+            "rating": 2.2,
+            "price": {
+                "value": 82.93,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Red Hexagon",
+            "type": "Hexagon",
+            "id": 7,
+            "color": "Red",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/03.png",
+            "colorCode": "ffCDD2",
+            "available": true,
+            "releaseDate": 1454629605,
+            "description": "Lorem ipsum",
+            "longDescription": "Lorem ipsum\n\nLorem ipsum\n\nLorem ipsum\nLorem ipsum",
+            "rating": 2.25,
+            "price": {
+                "value": 119.39,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Red Triangle",
+            "type": "Triangle",
+            "id": 8,
+            "color": "Red",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/08.png",
+            "colorCode": "ffCDD2",
+            "available": true,
+            "releaseDate": 1453629605,
+            "description": "Lorem ipsum",
+            "longDescription": "Lorem ipsum\n\nLorem ipsum\n\nLorem ipsum\nLorem ipsum",
+            "rating": 4.2,
+            "price": {
+                "value": 6690.15,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Blue Hexagon",
+            "type": "Hexagon",
+            "id": 9,
+            "color": "Blue",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/03.png",
+            "colorCode": "BBDEFB",
+            "available": true,
+            "releaseDate": 1452629605,
+            "description": "Lorem ipsum",
+            "longDescription": "Lorem ipsum\n\nLorem ipsum\n\nLorem ipsum\nLorem ipsum",
+            "rating": 1.21,
+            "price": {
+                "value": 934.86,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Red Hexagon",
+            "type": "Hexagon",
+            "id": 10,
+            "color": "Red",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/03.png",
+            "colorCode": "ffCDD2",
+            "available": false,
+            "releaseDate": 1451629605,
+            "description": "Lorem ipsum",
+            "longDescription": "Lorem ipsum\n\nLorem ipsum\n\nLorem ipsum\nLorem ipsum",
+            "rating": 2.72,
+            "price": {
+                "value": 689.51,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Red Square",
+            "type": "Square",
+            "id": 11,
+            "color": "Red",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/04.png",
+            "colorCode": "ffCDD2",
+            "available": true,
+            "releaseDate": 1450629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+            "rating": 1.46,
+            "price": {
+                "value": 256.33,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Yellow Circle",
+            "type": "Circle",
+            "id": 12,
+            "color": "Yellow",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/01.png",
+            "colorCode": "FFECB3",
+            "available": true,
+            "releaseDate": 1449629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,",
+            "rating": 2.22,
+            "price": {
+                "value": 2499.14,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Red Triangle",
+            "type": "Triangle",
+            "id": 13,
+            "color": "Red",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/08.png",
+            "colorCode": "ffCDD2",
+            "available": true,
+            "releaseDate": 1448629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,",
+            "rating": 3.24,
+            "price": {
+                "value": 2372.16,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Red Triangle",
+            "type": "Triangle",
+            "id": 14,
+            "color": "Red",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/08.png",
+            "colorCode": "ffCDD2",
+            "available": false,
+            "releaseDate": 1447629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur\n\nLorem ipsum dolor sit amet, consetetur\n\nLorem ipsum dolor sit amet, consetetur\nLorem ipsum dolor sit amet, consetetur",
+            "rating": 2.47,
+            "price": {
+                "value": 1371.27,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Red Hexagon",
+            "type": "Hexagon",
+            "id": 15,
+            "color": "Red",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/03.png",
+            "colorCode": "ffCDD2",
+            "available": false,
+            "releaseDate": 1446629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+            "rating": 1.39,
+            "price": {
+                "value": 1254.78,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Green Square",
+            "type": "Square",
+            "id": 16,
+            "color": "Green",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/04.png",
+            "colorCode": "C8E6C9",
+            "available": true,
+            "releaseDate": 1445629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,",
+            "rating": 1,
+            "price": {
+                "value": 1161.46,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Red Circle",
+            "type": "Circle",
+            "id": 17,
+            "color": "Red",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/01.png",
+            "colorCode": "ffCDD2",
+            "available": false,
+            "releaseDate": 1444629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+            "rating": 4.04,
+            "price": {
+                "value": 4076.79,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Yellow Square",
+            "type": "Square",
+            "id": 18,
+            "color": "Yellow",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/04.png",
+            "colorCode": "FFECB3",
+            "available": false,
+            "releaseDate": 1443629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+            "rating": 2.72,
+            "price": {
+                "value": 391.75,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Yellow Hexagon",
+            "type": "Hexagon",
+            "id": 19,
+            "color": "Yellow",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/03.png",
+            "colorCode": "FFECB3",
+            "available": false,
+            "releaseDate": 1442629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+            "rating": 1,
+            "price": {
+                "value": 1037.73,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Yellow Triangle",
+            "type": "Triangle",
+            "id": 20,
+            "color": "Yellow",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/08.png",
+            "colorCode": "FFECB3",
+            "available": false,
+            "releaseDate": 1441629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+            "rating": 1.25,
+            "price": {
+                "value": 1221.59,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Green Hexagon",
+            "type": "Hexagon",
+            "id": 21,
+            "color": "Green",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/03.png",
+            "colorCode": "C8E6C9",
+            "available": true,
+            "releaseDate": 1440629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,",
+            "rating": 1,
+            "price": {
+                "value": 382.55,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Yellow Triangle",
+            "type": "Triangle",
+            "id": 22,
+            "color": "Yellow",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/08.png",
+            "colorCode": "FFECB3",
+            "available": false,
+            "releaseDate": 1439629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur\n\nLorem ipsum dolor sit amet, consetetur\n\nLorem ipsum dolor sit amet, consetetur\nLorem ipsum dolor sit amet, consetetur",
+            "rating": 1,
+            "price": {
+                "value": 2724.96,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Blue Square",
+            "type": "Square",
+            "id": 23,
+            "color": "Blue",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/04.png",
+            "colorCode": "BBDEFB",
+            "available": true,
+            "releaseDate": 1438629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,",
+            "rating": 1.54,
+            "price": {
+                "value": 10509.87,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Green Hexagon",
+            "type": "Hexagon",
+            "id": 24,
+            "color": "Green",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/03.png",
+            "colorCode": "C8E6C9",
+            "available": false,
+            "releaseDate": 1437629605,
+            "description": "Lorem ipsum",
+            "longDescription": "Lorem ipsum\n\nLorem ipsum\n\nLorem ipsum\nLorem ipsum",
+            "rating": 1.01,
+            "price": {
+                "value": 380.4,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Red Circle",
+            "type": "Circle",
+            "id": 25,
+            "color": "Red",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/01.png",
+            "colorCode": "ffCDD2",
+            "available": false,
+            "releaseDate": 1436629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur\n\nLorem ipsum dolor sit amet, consetetur\n\nLorem ipsum dolor sit amet, consetetur\nLorem ipsum dolor sit amet, consetetur",
+            "rating": 3.26,
+            "price": {
+                "value": 1779.73,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Yellow Triangle",
+            "type": "Triangle",
+            "id": 26,
+            "color": "Yellow",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/08.png",
+            "colorCode": "FFECB3",
+            "available": false,
+            "releaseDate": 1435629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+            "rating": 2.18,
+            "price": {
+                "value": 982.42,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Yellow Circle",
+            "type": "Circle",
+            "id": 27,
+            "color": "Yellow",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/01.png",
+            "colorCode": "FFECB3",
+            "available": false,
+            "releaseDate": 1434629605,
+            "description": "Lorem ipsum",
+            "longDescription": "Lorem ipsum\n\nLorem ipsum\n\nLorem ipsum\nLorem ipsum",
+            "rating": 1,
+            "price": {
+                "value": 1390.72,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Blue Hexagon",
+            "type": "Hexagon",
+            "id": 28,
+            "color": "Blue",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/03.png",
+            "colorCode": "BBDEFB",
+            "available": false,
+            "releaseDate": 1433629605,
+            "description": "Lorem ipsum",
+            "longDescription": "Lorem ipsum\n\nLorem ipsum\n\nLorem ipsum\nLorem ipsum",
+            "rating": 4.06,
+            "price": {
+                "value": 1427.87,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Green Hexagon",
+            "type": "Hexagon",
+            "id": 29,
+            "color": "Green",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/03.png",
+            "colorCode": "C8E6C9",
+            "available": false,
+            "releaseDate": 1432629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+            "rating": 1,
+            "price": {
+                "value": 1444.53,
+                "currency": "EUR"
+            }
+},
+        {
+            "name": "Red Square",
+            "type": "Square",
+            "id": 30,
+            "color": "Red",
+            "imageURL": "https://kredit.check24.de/konto-kredit/ratenkredit/nativeapps/imgs/04.png",
+            "colorCode": "ffCDD2",
+            "available": true,
+            "releaseDate": 1431629605,
+            "description": "Lorem ipsum dolor sit amet, consetetur",
+            "longDescription": "Lorem ipsum dolor sit amet, consetetur\n\nLorem ipsum dolor sit amet, consetetur\n\nLorem ipsum dolor sit amet, consetetur\nLorem ipsum dolor sit amet, consetetur",
+            "rating": 4.27,
+            "price": {
+                "value": 1151.66,
+                "currency": "EUR"
+            }
+}
+]
+}
