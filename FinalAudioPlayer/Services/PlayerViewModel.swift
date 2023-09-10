@@ -54,8 +54,8 @@ final class PlayerViewModel {
         playerService.queue(url: url)
     }
     
-    func getCurrentPlayingIndex() -> Int? {
-        return currentPlayingItemIndex
+    func getCurrentPlayingIndex() -> Int {
+        return currentPlayingItemIndex ?? 0
     }
     
     func playItem(at indexPath: Int) {

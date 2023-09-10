@@ -10,7 +10,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
-    let abstractPlayer = AbstractPlayer()
+    let abstractPlayer = AbstractPlayer.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +42,9 @@ class ViewController: UIViewController {
 //        abstractPlayer.queue(urlsAbsoulteString: urls)
         
         
-        let playlist1 = PlaylistItem(id: "id", audioURL: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+        let playlist1 = PlaylistItem(id: "id", audioURL: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TjT", genre: "ee", status: .stopped, queues: false)
 
-        let playlist2 = PlaylistItem(id: "id", audioURL: "https://p.scdn.co/mp3-preview/081447adc23dad4f79ba4f1082615d1c56edf5e1?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+        let playlist2 = PlaylistItem(id: "i6d", audioURL: "https://p.scdn.co/mp3-preview/081447adc23dad4f79ba4f1082615d1c56edf5e1?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
         
         
         
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func seekAction(_ sender: Any) {
-        abstractPlayer.seek(action: .ended)
+        abstractPlayer.seek(action: .updateSeek(time: 10.0))
     }
     
     @IBAction func removeAction(_ sender: Any) {

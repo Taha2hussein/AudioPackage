@@ -18,6 +18,8 @@ protocol PlayerProtocol {
     var service: AudioPlayerService { get set }
     var eqalizerViewModel: EqualzerViewModel? { get set }
     var PlayerControls: PlayerControlsViewModel  { get set }
+    var minimumPlaybackDuration: TimeInterval { get set }
+    var currentIndex: Int { get set }
     func seek(action: SeekAction)
     func play(url: URL)
     func playLocalFile(file: String, ofType: String)
@@ -47,14 +49,16 @@ protocol sharedPlayerProtocol: PlayerProtocol,PlayerListProtocol {}
 
 class AbstractPlayer : sharedPlayerProtocol {
     
-//    static let shared = AbstractPlayer()
+    var currentIndex: Int = 0
+    var minimumPlaybackDuration: TimeInterval = 5.0
+    static let shared = AbstractPlayer()
     var PlayerControls: PlayerControlsViewModel
     var eqalizerViewModel: EqualzerViewModel?
     var playlistItemsService = PlaylistItemsService(initialItemsProvider: provideInitialPlaylistItems)
     var service = AudioPlayerService()
     var viewModel: PlayerViewModel
     
-     init() {
+    init() {
         viewModel = PlayerViewModel(playlistItemsService: playlistItemsService, playerService: service)
         PlayerControls = PlayerControlsViewModel(playerService: service)
         intialzeEqalizer()
@@ -87,6 +91,7 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     func playAtIndex(index: Int) {
+        currentIndex = index
         viewModel.playItem(at: index)
     }
     
@@ -108,28 +113,38 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     func previous() {
+        if service.progress <= minimumPlaybackDuration {
+            self.playAtIndex(index: currentIndex)
+             return
+         }
         let index = changeIndexDependOnStatus(status: .previous)
         playAtIndex(index:  index)
     }
     
     func changeIndexDependOnStatus(status: Status) -> Int {
-        if let currentIndex = viewModel.getCurrentPlayingIndex() {
-            let validationIndex = validateIndex(index: currentIndex)
-            if validationIndex {
-                switch status {
-                case .next : return (currentIndex + 1)
-                case .previous : return (currentIndex - 1)
-                }
+         currentIndex = viewModel.getCurrentPlayingIndex()
+        let validationIndex = validateIndex(index: currentIndex , status: status)
+        if validationIndex {
+            switch status {
+            case .next :
+                currentIndex = currentIndex + 1
+            case .previous :
+                currentIndex = currentIndex - 1
             }
         }
-        return 0
+        return currentIndex
     }
     
-    func validateIndex(index: Int) -> Bool {
-        if index >= 0 && index < viewModel.itemsCount {
-            return true
+    func validateIndex(index: Int , status: Status) -> Bool {
+        var validatorBool: Bool = false
+        switch status {
+        case .next:
+            validatorBool = (index >= 0 && index < viewModel.itemsCount)
+        case .previous:
+            validatorBool = (index > 0 && index < viewModel.itemsCount)
         }
-        return false
+        return  validatorBool
+        
     }
     
     func pause() {
@@ -152,7 +167,7 @@ class AbstractPlayer : sharedPlayerProtocol {
     func extractURLFromPlayListItemsAndADDToQueue(listItems: [PlaylistItem]) {
         listItems.forEach() { playItem in
             if let url: URL = playItem.audioURL as? URL {
-                service.queue(url: url) 
+                service.queue(url: url)
             }
         }
     }
