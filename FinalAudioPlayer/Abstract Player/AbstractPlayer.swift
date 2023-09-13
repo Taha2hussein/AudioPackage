@@ -23,10 +23,11 @@ protocol PlayerProtocol {
     func seek(action: SeekAction)
     func play(url: URL)
     func playLocalFile(file: String, ofType: String)
-    func playAtIndex(index: Int)
+    func skipToQueueItem(index: Int)
     func update(gain: Float, for index: Int)
     func checkEqalizerEnabled() -> Bool
     func enableEq(_ enable: Bool)
+    func shuffle()
     func next()
     func previous()
     func pause()
@@ -41,8 +42,9 @@ protocol PlayerListProtocol {
     func extractURLFromPlayListItemsAndADDToQueue(listItems: [PlaylistItem])
     func getItemsList() -> [PlaylistItem]
     func getCurrentQueueCount() -> Int
-    func insetMedia(_ playlistItem: PlaylistItem)
+    func insetMedia(_ playlistItem: PlaylistItem , index: Int)
     func removeMedia(_ playlistItem: PlaylistItem)
+    func addMediaToQueue(_ playlistItem: PlaylistItem)
 }
 
 protocol sharedPlayerProtocol: PlayerProtocol,PlayerListProtocol {}
@@ -90,7 +92,7 @@ class AbstractPlayer : sharedPlayerProtocol {
         }
     }
     
-    func playAtIndex(index: Int) {
+    func skipToQueueItem(index: Int) {
         currentIndex = index
         viewModel.playItem(at: index)
     }
@@ -109,16 +111,16 @@ class AbstractPlayer : sharedPlayerProtocol {
     
     func next() {
         let index =  changeIndexDependOnStatus(status: .next)
-        playAtIndex(index:  index)
+        skipToQueueItem(index:  index)
     }
     
     func previous() {
-        if service.progress <= minimumPlaybackDuration {
-            self.playAtIndex(index: currentIndex)
+        if service.progress >= minimumPlaybackDuration {
+            self.skipToQueueItem(index: currentIndex)
              return
          }
         let index = changeIndexDependOnStatus(status: .previous)
-        playAtIndex(index:  index)
+        skipToQueueItem(index:  index)
     }
     
     func changeIndexDependOnStatus(status: Status) -> Int {
@@ -147,6 +149,16 @@ class AbstractPlayer : sharedPlayerProtocol {
         
     }
     
+    func shuffle() {
+//        defer {
+//            self.cancel()
+//            let audioList = playlistItemsService.getItemsList()
+//        extractURLFromPlayListItemsAndADDToQueue(listItems: listItems)
+//        }
+//        playlistItemsService.shuffleAudioList()
+        
+    }
+    
     func pause() {
         PlayerControls.togglePauseResume()
     }
@@ -160,6 +172,7 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     func addQueue(_ listItems: [PlaylistItem]) {
+        
         playlistItemsService.addQueue(queue: listItems)
         extractURLFromPlayListItemsAndADDToQueue(listItems: listItems)
     }
@@ -184,12 +197,20 @@ class AbstractPlayer : sharedPlayerProtocol {
         PlayerControls.seek(action: action)
     }
     
-    func insetMedia(_ playlistItem: PlaylistItem) {
-        playlistItemsService.add(item: playlistItem)
-        
+    func insetMedia(_ playlistItem: PlaylistItem, index: Int) {
+//        //
+//        playlistItemsService.insertItemToQueue(item: playlistItem,index:  index)
+//        extractURLFromPlayListItemsAndADDToQueue(listItems: playlistItemsService.getItemsList())
+////        extractURLFromPlayListItemsAndADDToQueue(listItems: [playlistItem])
+//
+    }
+    
+    func addMediaToQueue(_ playlistItem: PlaylistItem) {
+        //
+        playlistItemsService.addMediaToQueue(playlistItem: playlistItem)
     }
     
     func removeMedia(_ playlistItem: PlaylistItem) {
-        playlistItemsService.remove(item: playlistItem)
+//        playlistItemsService.remove(item: playlistItem)
     }
 }

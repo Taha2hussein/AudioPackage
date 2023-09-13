@@ -36,13 +36,11 @@ final class PlayerViewModel {
         playlistItemsService.itemsCount
     }
 
-    func add(id: String , title: String , album: String , artist: String ,genre: String , url: String) {
+    func add(id: String , title: String , album: String , artist: String ,genre: String , url: String, index: Int) {
         let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         _ = detector.firstMatch(in: url, options: [], range: NSRange(location: 0, length: url.utf16.count))
 
-        playlistItemsService.add(item: PlaylistItem(id: id, audioURL: url, title: title, album: album, artist: artist, genre: genre, status: .stopped, queues: false))
-        
-        reloadContent?(.all)
+        playlistItemsService.insertItemToQueue(item: PlaylistItem(id: id, audioURL: url, title: title, album: album, artist: artist, genre: genre, status: .stopped, queues: false), index: index)
     }
 
     func item(at indexPath: Int) -> PlaylistItem? {

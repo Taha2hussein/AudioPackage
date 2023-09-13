@@ -68,27 +68,35 @@ final class PlaylistItemsService {
         items.firstIndex(of: item)
     }
 
-    func add(item: PlaylistItem) {
-        items.append(item)
+    func insertItemToQueue(item: PlaylistItem, index: Int) {
+        items.insertElement(item, at: index)
     }
 
+    func addMediaToQueue(playlistItem: PlaylistItem) {
+        items.append(playlistItem)
+    }
+    
     func addQueue(queue: [PlaylistItem]) {
-        items = queue
+        items += queue
     }
     
     func remove(item: PlaylistItem) {
         if let index = items.firstIndex(of: item) {
             items.remove(at: index)
         }
+        
+    }
+    
+    func shuffleAudioList() {
+        items.shuffle()
     }
     
     func updateQueu(queue: [PlaylistItem]) {
-        items.removeAll()
-        items = queue
+        items += queue
     }
     
     func getItemsList() -> [PlaylistItem] {
-    return items
+      return items
     }
     
     func setStatus(for index: Int, status: PlaylistItem.Status) {

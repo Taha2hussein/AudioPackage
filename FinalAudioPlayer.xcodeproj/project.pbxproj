@@ -23,11 +23,12 @@
 		002341562A9E0EA100095CE3 /* EqualizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002341532A9E0EA100095CE3 /* EqualizerViewModel.swift */; };
 		002341592A9E128E00095CE3 /* hipjazz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 002341572A9E128D00095CE3 /* hipjazz.wav */; };
 		0023415A2A9E128E00095CE3 /* bensound-jazzyfrenchy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 002341582A9E128E00095CE3 /* bensound-jazzyfrenchy.mp3 */; };
-		722992B12A9F393800FD2A09 /* AudioStreaming in Frameworks */ = {isa = PBXBuildFile; productRef = 722992B02A9F393800FD2A09 /* AudioStreaming */; };
 		72355AC62AA739C1004131BE /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72355AC32AA739C1004131BE /* NetworkUtils.swift */; };
 		72355AC72AA739C1004131BE /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 72355AC42AA739C1004131BE /* Mock.json */; };
 		7271EDD32A9F76E7000B1E73 /* AbstractPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271EDD22A9F76E7000B1E73 /* AbstractPlayer.swift */; };
 		728980392AA0A03800A3AD2E /* FinalAudioPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728980382AA0A03800A3AD2E /* FinalAudioPlayerTests.swift */; };
+		729C02732AB1DFB3006C3959 /* AudioStreaming in Frameworks */ = {isa = PBXBuildFile; productRef = 729C02722AB1DFB3006C3959 /* AudioStreaming */; };
+		72D4D40B2AAF0ACF0076CDC8 /* Valiadtion Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D4D40A2AAF0ACF0076CDC8 /* Valiadtion Extension.swift */; };
 		72DA5B572AA08BB00037E058 /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DA5B562AA08BB00037E058 /* PlayerControlsViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0023412B2A9E046A00095CE3;
 			remoteInfo = FinalAudioPlayer;
+		};
+		729C026D2AB1DEBE006C3959 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 729C02682AB1DEBE006C3959 /* AudioStreaming.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5AEDBAE24744153007D8101;
+			remoteInfo = AudioStreaming;
+		};
+		729C026F2AB1DEBE006C3959 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 729C02682AB1DEBE006C3959 /* AudioStreaming.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5AEDBB724744153007D8101;
+			remoteInfo = AudioStreamingTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -65,6 +80,8 @@
 		7271EDD22A9F76E7000B1E73 /* AbstractPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractPlayer.swift; sourceTree = "<group>"; };
 		728980362AA0A03800A3AD2E /* FinalAudioPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalAudioPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		728980382AA0A03800A3AD2E /* FinalAudioPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalAudioPlayerTests.swift; sourceTree = "<group>"; };
+		729C02682AB1DEBE006C3959 /* AudioStreaming.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AudioStreaming.xcodeproj; path = "../../AudioStreaming-main/AudioStreaming.xcodeproj"; sourceTree = "<group>"; };
+		72D4D40A2AAF0ACF0076CDC8 /* Valiadtion Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Valiadtion Extension.swift"; sourceTree = "<group>"; };
 		72DA5B562AA08BB00037E058 /* PlayerControlsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControlsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				722992B12A9F393800FD2A09 /* AudioStreaming in Frameworks */,
+				729C02732AB1DFB3006C3959 /* AudioStreaming in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +107,7 @@
 		002341232A9E046A00095CE3 = {
 			isa = PBXGroup;
 			children = (
+				729C02682AB1DEBE006C3959 /* AudioStreaming.xcodeproj */,
 				0023412E2A9E046A00095CE3 /* FinalAudioPlayer */,
 				728980372AA0A03800A3AD2E /* FinalAudioPlayerTests */,
 				0023412D2A9E046A00095CE3 /* Products */,
@@ -134,6 +152,7 @@
 				002341492A9E076500095CE3 /* EqualizerService.swift */,
 				002341472A9E076500095CE3 /* MulticastDelegate.swift */,
 				002341482A9E076500095CE3 /* PlaylistItemsService.swift */,
+				72D4D40A2AAF0ACF0076CDC8 /* Valiadtion Extension.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -165,6 +184,15 @@
 			path = FinalAudioPlayerTests;
 			sourceTree = "<group>";
 		};
+		729C02692AB1DEBE006C3959 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				729C026E2AB1DEBE006C3959 /* AudioStreaming.framework */,
+				729C02702AB1DEBE006C3959 /* AudioStreamingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -182,7 +210,7 @@
 			);
 			name = FinalAudioPlayer;
 			packageProductDependencies = (
-				722992B02A9F393800FD2A09 /* AudioStreaming */,
+				729C02722AB1DFB3006C3959 /* AudioStreaming */,
 			);
 			productName = FinalAudioPlayer;
 			productReference = 0023412C2A9E046A00095CE3 /* FinalAudioPlayer.app */;
@@ -235,10 +263,16 @@
 			);
 			mainGroup = 002341232A9E046A00095CE3;
 			packageReferences = (
-				722992AF2A9F393800FD2A09 /* XCRemoteSwiftPackageReference "AudioStreaming" */,
+				729C02712AB1DFB3006C3959 /* XCRemoteSwiftPackageReference "AudioStreaming" */,
 			);
 			productRefGroup = 0023412D2A9E046A00095CE3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 729C02692AB1DEBE006C3959 /* Products */;
+					ProjectRef = 729C02682AB1DEBE006C3959 /* AudioStreaming.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0023412B2A9E046A00095CE3 /* FinalAudioPlayer */,
@@ -246,6 +280,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		729C026E2AB1DEBE006C3959 /* AudioStreaming.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AudioStreaming.framework;
+			remoteRef = 729C026D2AB1DEBE006C3959 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		729C02702AB1DEBE006C3959 /* AudioStreamingTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AudioStreamingTests.xctest;
+			remoteRef = 729C026F2AB1DEBE006C3959 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0023412A2A9E046A00095CE3 /* Resources */ = {
@@ -281,6 +332,7 @@
 				002341342A9E046A00095CE3 /* ViewController.swift in Sources */,
 				002341562A9E0EA100095CE3 /* EqualizerViewModel.swift in Sources */,
 				002341302A9E046A00095CE3 /* AppDelegate.swift in Sources */,
+				72D4D40B2AAF0ACF0076CDC8 /* Valiadtion Extension.swift in Sources */,
 				002341502A9E093A00095CE3 /* AudioContent.swift in Sources */,
 				0023414D2A9E076500095CE3 /* EqualizerService.swift in Sources */,
 				0023414C2A9E076500095CE3 /* PlaylistItemsService.swift in Sources */,
@@ -573,9 +625,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		722992AF2A9F393800FD2A09 /* XCRemoteSwiftPackageReference "AudioStreaming" */ = {
+		729C02712AB1DFB3006C3959 /* XCRemoteSwiftPackageReference "AudioStreaming" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dimitris-c/AudioStreaming.git";
+			repositoryURL = "https://github.com/Taha2hussein/AudioStreaming";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -584,9 +636,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		722992B02A9F393800FD2A09 /* AudioStreaming */ = {
+		729C02722AB1DFB3006C3959 /* AudioStreaming */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 722992AF2A9F393800FD2A09 /* XCRemoteSwiftPackageReference "AudioStreaming" */;
+			package = 729C02712AB1DFB3006C3959 /* XCRemoteSwiftPackageReference "AudioStreaming" */;
 			productName = AudioStreaming;
 		};
 /* End XCSwiftPackageProductDependency section */

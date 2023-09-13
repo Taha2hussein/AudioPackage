@@ -20,9 +20,8 @@ class ViewController: UIViewController {
         abstractPlayer.cancel()
     }
     
-    @IBAction func playAtindex(_ sender: Any) {
-        
-        abstractPlayer.playAtIndex(index: 2)
+    @IBAction func shuffleAction(_ sender: Any) {
+        abstractPlayer.shuffle()
     }
     
     @IBAction func resumeAction(_ sender: Any) {
@@ -41,14 +40,14 @@ class ViewController: UIViewController {
 //
 //        abstractPlayer.queue(urlsAbsoulteString: urls)
         
-        
         let playlist1 = PlaylistItem(id: "id", audioURL: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TjT", genre: "ee", status: .stopped, queues: false)
 
         let playlist2 = PlaylistItem(id: "i6d", audioURL: "https://p.scdn.co/mp3-preview/081447adc23dad4f79ba4f1082615d1c56edf5e1?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
         
         
+        let playlist3 = PlaylistItem(id: "id", audioURL: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
         
-        abstractPlayer.addQueue([playlist1,playlist2])
+        abstractPlayer.addQueue([playlist1,playlist2,playlist3])
         
         
 //        print(abstractPlayer.getCurrentQueueCount() , "getCurrentQueueCount")
@@ -66,7 +65,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func seekAction(_ sender: Any) {
-        abstractPlayer.seek(action: .updateSeek(time: 10.0))
+        abstractPlayer.seek(action: .ended)
     }
     
     @IBAction func removeAction(_ sender: Any) {
@@ -81,12 +80,11 @@ class ViewController: UIViewController {
     
     @IBAction func insetAction(_ sender: Any) {
         let playlist3 = PlaylistItem(id: "id", audioURL: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-        
-        abstractPlayer.insetMedia(playlist3)
+        abstractPlayer.insetMedia(playlist3, index: 1)
     }
     
     @IBAction func palyAtIndexAction(_ sender: Any) {
-        abstractPlayer.playAtIndex(index: 2)
+        abstractPlayer.skipToQueueItem(index: 0)
     }
     
     @IBAction func eqalizerAction(_ sender: Any) {
