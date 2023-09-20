@@ -27,6 +27,7 @@ protocol PlayerProtocol {
     func update(gain: Float, for index: Int)
     func checkEqalizerEnabled() -> Bool
     func enableEq(_ enable: Bool)
+    func removeAll()
     func shuffle()
     func next()
     func previous()
@@ -155,7 +156,7 @@ class AbstractPlayer : sharedPlayerProtocol {
 //            let audioList = playlistItemsService.getItemsList()
 //        extractURLFromPlayListItemsAndADDToQueue(listItems: listItems)
 //        }
-//        playlistItemsService.shuffleAudioList()
+        playlistItemsService.shuffleAudioList()
         
     }
     
@@ -169,6 +170,10 @@ class AbstractPlayer : sharedPlayerProtocol {
     
     func cancel() {
         PlayerControls.stop()
+    }
+    
+    func removeAll() {
+        playlistItemsService.removeAllItems()
     }
     
     func addQueue(_ listItems: [PlaylistItem]) {

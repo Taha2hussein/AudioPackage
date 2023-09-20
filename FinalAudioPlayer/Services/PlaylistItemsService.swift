@@ -80,6 +80,10 @@ final class PlaylistItemsService {
         items += queue
     }
     
+    func removeAllItems() {
+        items.removeAll()
+    }
+    
     func remove(item: PlaylistItem) {
         if let index = items.firstIndex(of: item) {
             items.remove(at: index)

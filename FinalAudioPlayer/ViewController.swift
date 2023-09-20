@@ -7,7 +7,7 @@
 
 import UIKit
 import AVFoundation
-
+import AudioStreaming
 class ViewController: UIViewController {
     
     let abstractPlayer = AbstractPlayer.shared
@@ -57,7 +57,13 @@ class ViewController: UIViewController {
         
     }
     @IBAction func nextAction(_ sender: Any) {
-        abstractPlayer.next()
+//        abstractPlayer.next()
+//        let player = abstractPlayer
+
+
+        abstractPlayer.play(url: URL(string: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!)
+
+//             player.queue(url: URL(string: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!)
     }
     
     @IBAction func prevAction(_ sender: Any) {
@@ -84,7 +90,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func palyAtIndexAction(_ sender: Any) {
-        abstractPlayer.skipToQueueItem(index: 0)
+//        abstractPlayer.skipToQueueItem(index: 1)
+        
+    
+        
     }
     
     @IBAction func eqalizerAction(_ sender: Any) {

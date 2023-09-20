@@ -45,7 +45,6 @@ final class AudioPlayerService {
     init() {
         player = AudioPlayer(configuration: .init(enableLogs: true))
         player.delegate = self
-
         configureAudioSession()
         registerSessionEvents()
     }
