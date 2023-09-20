@@ -23,11 +23,11 @@
 		002341562A9E0EA100095CE3 /* EqualizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002341532A9E0EA100095CE3 /* EqualizerViewModel.swift */; };
 		002341592A9E128E00095CE3 /* hipjazz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 002341572A9E128D00095CE3 /* hipjazz.wav */; };
 		0023415A2A9E128E00095CE3 /* bensound-jazzyfrenchy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 002341582A9E128E00095CE3 /* bensound-jazzyfrenchy.mp3 */; };
+		7220A2CB2ABAD87C00A778E0 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7220A2CA2ABAD87C00A778E0 /* Utility.swift */; };
 		72355AC72AA739C1004131BE /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 72355AC42AA739C1004131BE /* Mock.json */; };
 		7271EDD32A9F76E7000B1E73 /* AbstractPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271EDD22A9F76E7000B1E73 /* AbstractPlayer.swift */; };
 		727E97C12AB85A12006CE80F /* AudioStreaming in Frameworks */ = {isa = PBXBuildFile; productRef = 727E97C02AB85A12006CE80F /* AudioStreaming */; };
 		727E97E42AB87E1E006CE80F /* MockerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727E97E32AB87E1E006CE80F /* MockerProtocols.swift */; };
-		727E97E62AB87E41006CE80F /* Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727E97E52AB87E41006CE80F /* Mocker.swift */; };
 		728980392AA0A03800A3AD2E /* FinalAudioPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728980382AA0A03800A3AD2E /* FinalAudioPlayerTests.swift */; };
 		72D4D40B2AAF0ACF0076CDC8 /* Valiadtion Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D4D40A2AAF0ACF0076CDC8 /* Valiadtion Extension.swift */; };
 		72DA5B572AA08BB00037E058 /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DA5B562AA08BB00037E058 /* PlayerControlsViewModel.swift */; };
@@ -62,10 +62,10 @@
 		002341532A9E0EA100095CE3 /* EqualizerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualizerViewModel.swift; sourceTree = "<group>"; };
 		002341572A9E128D00095CE3 /* hipjazz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hipjazz.wav; sourceTree = "<group>"; };
 		002341582A9E128E00095CE3 /* bensound-jazzyfrenchy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-jazzyfrenchy.mp3"; sourceTree = "<group>"; };
+		7220A2CA2ABAD87C00A778E0 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		72355AC42AA739C1004131BE /* Mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
 		7271EDD22A9F76E7000B1E73 /* AbstractPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractPlayer.swift; sourceTree = "<group>"; };
 		727E97E32AB87E1E006CE80F /* MockerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockerProtocols.swift; sourceTree = "<group>"; };
-		727E97E52AB87E41006CE80F /* Mocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocker.swift; sourceTree = "<group>"; };
 		728980362AA0A03800A3AD2E /* FinalAudioPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalAudioPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		728980382AA0A03800A3AD2E /* FinalAudioPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalAudioPlayerTests.swift; sourceTree = "<group>"; };
 		72D4D40A2AAF0ACF0076CDC8 /* Valiadtion Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Valiadtion Extension.swift"; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 				72355AC42AA739C1004131BE /* Mock.json */,
 				728980382AA0A03800A3AD2E /* FinalAudioPlayerTests.swift */,
 				727E97E32AB87E1E006CE80F /* MockerProtocols.swift */,
-				727E97E52AB87E41006CE80F /* Mocker.swift */,
+				7220A2CA2ABAD87C00A778E0 /* Utility.swift */,
 			);
 			path = FinalAudioPlayerTests;
 			sourceTree = "<group>";
@@ -302,8 +302,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7220A2CB2ABAD87C00A778E0 /* Utility.swift in Sources */,
 				727E97E42AB87E1E006CE80F /* MockerProtocols.swift in Sources */,
-				727E97E62AB87E41006CE80F /* Mocker.swift in Sources */,
 				728980392AA0A03800A3AD2E /* FinalAudioPlayerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

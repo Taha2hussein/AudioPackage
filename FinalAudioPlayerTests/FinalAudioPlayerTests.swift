@@ -10,11 +10,13 @@ import XCTest
 
 final class FinalAudioPlayerTests: XCTestCase {
     var songPlayer: AbstractPlayer?
+    var mocking: Utility?
     let expectation = XCTestExpectation(description: "Song playback completed")
     
     override func setUp() {
         super.setUp()
         songPlayer = AbstractPlayer.shared
+        mocking = Utility()
     }
     
     override func tearDown() {
@@ -60,7 +62,7 @@ final class FinalAudioPlayerTests: XCTestCase {
             XCTAssertTrue(self.songPlayer?.playlistItemsService.itemsCount == 2, "items Array should be 2")
             self.expectation.fulfill()
         }
-//        self.expectation.fulfill()
+        //        self.expectation.fulfill()
         
     }
     
@@ -157,7 +159,7 @@ final class FinalAudioPlayerTests: XCTestCase {
         songPlayer?.shuffle()
         let shuffledList = songPlayer?.getItemsList()
         XCTAssertNotEqual(songList, shuffledList, "shuffled performed correctly")
-
+        
     }
     
     func testAddMediaToQueue() {
@@ -168,13 +170,13 @@ final class FinalAudioPlayerTests: XCTestCase {
         songPlayer?.addQueue([playlist1,playlist2])
         let songsCount = songPlayer?.getCurrentQueueCount()
         XCTAssertEqual(songsCount, 2, "media queue should be two")
-
+        
         
         let playlist3 = PlaylistItem(id: "id", audioURL: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
         songPlayer?.addMediaToQueue(playlist3)
         let songsCountAfterAdding = songPlayer?.getCurrentQueueCount()
         XCTAssertEqual(songsCountAfterAdding, 3, "media added to queue correectly")
-
+        
     }
     
     func testUpdateQueue() {
@@ -198,23 +200,54 @@ final class FinalAudioPlayerTests: XCTestCase {
         }
     }
     
-//    func testInsertMedial() {
-//        let playlist1 = PlaylistItem(id: "id", audioURL: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-//
-//        let playlist2 = PlaylistItem(id: "id", audioURL: "https://p.scdn.co/mp3-preview/081447adc23dad4f79ba4f1082615d1c56edf5e1?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//            self.songPlayer?.addQueue([playlist1,playlist2])
-//
-//            XCTAssertTrue(self.songPlayer?.playlistItemsService.itemsCount == 2, "items Array should be 2")
-//
-//            let playlist3 = PlaylistItem(id: "id", audioURL: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-//
-//            self.songPlayer?.insetMedia(playlist3, index: 2)
-//            XCTAssertTrue(self.songPlayer?.playlistItemsService.itemsCount == 3, "items Array should be 2")
-//
-//            self.expectation.fulfill()
-//        }
-//    }
+    func testParsingMockJSON() {
+        // Load mock JSON data
+        guard let jsonData = mocking?.loadMockJSONData(fileName: "Mock") else {
+            XCTFail("Failed to load mock JSON data")
+            return
+        }
+        
+        do {
+            // Parse the JSON data
+            let jsonArray = try JSONSerialization.jsonObject(with: jsonData, options: [])
+            
+            // Assert the expected structure or values in the JSON array
+            if let jsonArray = jsonArray as? [[String: Any]] {
+                XCTAssertEqual(jsonArray.count, 10)
+                
+                let firstObject = jsonArray[0]
+                XCTAssertEqual(firstObject["entryId"] as? String, "13223671")
+               
+                
+                let secondObject = jsonArray[1]
+                XCTAssertEqual(secondObject["entryId"] as? String, "11535932")
+             
+            } else {
+                XCTFail("Invalid JSON structure")
+            }
+        } catch {
+            XCTFail("Error parsing mock JSON: \(error)")
+        }
+    }
+    
+    
+    //    func testInsertMedial() {
+    //        let playlist1 = PlaylistItem(id: "id", audioURL: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+    //
+    //        let playlist2 = PlaylistItem(id: "id", audioURL: "https://p.scdn.co/mp3-preview/081447adc23dad4f79ba4f1082615d1c56edf5e1?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+    //
+    //        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+    //            self.songPlayer?.addQueue([playlist1,playlist2])
+    //
+    //            XCTAssertTrue(self.songPlayer?.playlistItemsService.itemsCount == 2, "items Array should be 2")
+    //
+    //            let playlist3 = PlaylistItem(id: "id", audioURL: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+    //
+    //            self.songPlayer?.insetMedia(playlist3, index: 2)
+    //            XCTAssertTrue(self.songPlayer?.playlistItemsService.itemsCount == 3, "items Array should be 2")
+    //
+    //            self.expectation.fulfill()
+    //        }
+    //    }
     
 }

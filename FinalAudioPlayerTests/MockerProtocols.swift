@@ -7,5 +7,5 @@
 
 import Foundation
 protocol MockerProtocols {
-    func testJSONParsing<T: Decodable>(jsonFileName: String, responseType: T.Type)
+    func loadMockJSONData(fileName: String) -> Data?
 }
