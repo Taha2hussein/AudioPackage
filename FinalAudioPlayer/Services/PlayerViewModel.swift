@@ -58,8 +58,9 @@ final class PlayerViewModel {
     
     func playItem(at indexPath: Int) {
         guard let item = item(at: indexPath) else { return }
+        guard let audioUrl = item.audioURL else { return }
         if item.queues {
-            playerService.queue(url: item.audioURL)
+            playerService.queue(url: audioUrl)
             if currentPlayingItemIndex == nil {
                 currentPlayingItemIndex = indexPath
             }
@@ -69,7 +70,7 @@ final class PlayerViewModel {
                 reloadContent?(.item(IndexPath(row: index, section: 0)))
                 currentPlayingItemIndex = nil
             }
-            playerService.play(url: item.audioURL)
+            playerService.play(url: audioUrl)
             currentPlayingItemIndex = indexPath
         }
     }

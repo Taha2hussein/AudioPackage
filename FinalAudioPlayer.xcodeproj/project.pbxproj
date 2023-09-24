@@ -29,6 +29,7 @@
 		727E97C12AB85A12006CE80F /* AudioStreaming in Frameworks */ = {isa = PBXBuildFile; productRef = 727E97C02AB85A12006CE80F /* AudioStreaming */; };
 		727E97E42AB87E1E006CE80F /* MockerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727E97E32AB87E1E006CE80F /* MockerProtocols.swift */; };
 		728980392AA0A03800A3AD2E /* FinalAudioPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728980382AA0A03800A3AD2E /* FinalAudioPlayerTests.swift */; };
+		728E94F92AC06A6F0030F6C3 /* Array + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728E94F82AC06A6F0030F6C3 /* Array + Extension.swift */; };
 		72D4D40B2AAF0ACF0076CDC8 /* Valiadtion Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D4D40A2AAF0ACF0076CDC8 /* Valiadtion Extension.swift */; };
 		72DA5B572AA08BB00037E058 /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DA5B562AA08BB00037E058 /* PlayerControlsViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		727E97E32AB87E1E006CE80F /* MockerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockerProtocols.swift; sourceTree = "<group>"; };
 		728980362AA0A03800A3AD2E /* FinalAudioPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalAudioPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		728980382AA0A03800A3AD2E /* FinalAudioPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalAudioPlayerTests.swift; sourceTree = "<group>"; };
+		728E94F82AC06A6F0030F6C3 /* Array + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Extension.swift"; sourceTree = "<group>"; };
 		72D4D40A2AAF0ACF0076CDC8 /* Valiadtion Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Valiadtion Extension.swift"; sourceTree = "<group>"; };
 		72DA5B562AA08BB00037E058 /* PlayerControlsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControlsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				7271EDD22A9F76E7000B1E73 /* AbstractPlayer.swift */,
+				728E94F82AC06A6F0030F6C3 /* Array + Extension.swift */,
 			);
 			path = "Abstract Player";
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				728E94F92AC06A6F0030F6C3 /* Array + Extension.swift in Sources */,
 				002341542A9E0EA100095CE3 /* PlayerViewModel.swift in Sources */,
 				72DA5B572AA08BB00037E058 /* PlayerControlsViewModel.swift in Sources */,
 				002341552A9E0EA100095CE3 /* EqualizerViewController.swift in Sources */,

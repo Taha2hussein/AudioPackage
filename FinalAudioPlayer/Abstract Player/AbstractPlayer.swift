@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import AudioStreaming
 enum Status {
     case next
     case previous
@@ -27,6 +27,7 @@ protocol PlayerProtocol {
     func update(gain: Float, for index: Int)
     func checkEqalizerEnabled() -> Bool
     func enableEq(_ enable: Bool)
+    func updateStreamURL(url: URL, index: Int)
     func removeAll()
     func shuffle()
     func next()
@@ -47,11 +48,9 @@ protocol PlayerListProtocol {
     func removeMedia(_ playlistItem: PlaylistItem)
     func addMediaToQueue(_ playlistItem: PlaylistItem)
 }
-
 protocol sharedPlayerProtocol: PlayerProtocol,PlayerListProtocol {}
 
 class AbstractPlayer : sharedPlayerProtocol {
-    
     var currentIndex: Int = 0
     var minimumPlaybackDuration: TimeInterval = 5.0
     static let shared = AbstractPlayer()
@@ -65,7 +64,27 @@ class AbstractPlayer : sharedPlayerProtocol {
         viewModel = PlayerViewModel(playlistItemsService: playlistItemsService, playerService: service)
         PlayerControls = PlayerControlsViewModel(playerService: service)
         intialzeEqalizer()
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
+        
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func methodOfReceivedNotification(notification: Notification) {
+        // should handle next index from flutter
+        
+        
+        
+//                currentIndex = currentIndex + 1
+//
+//        self.updateStreamURL(url: URL(string: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3")!, index: 1)
+        print(currentIndex , "observedddd" )
+    }
+    
     
     internal func intialzeEqalizer() {
         let equaliserService = EqualizerService(playerService: service)
@@ -94,8 +113,11 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     func skipToQueueItem(index: Int) {
-        currentIndex = index
-        viewModel.playItem(at: index)
+        let validatedIndex = playlistItemsService.validateIndex(index: index)
+        if validatedIndex == true {
+            currentIndex = index
+            viewModel.playItem(at: index)
+        }
     }
     
     func queue(urlsAbsoulteString: [String]) {
@@ -118,14 +140,14 @@ class AbstractPlayer : sharedPlayerProtocol {
     func previous() {
         if service.progress >= minimumPlaybackDuration {
             self.skipToQueueItem(index: currentIndex)
-             return
-         }
+            return
+        }
         let index = changeIndexDependOnStatus(status: .previous)
         skipToQueueItem(index:  index)
     }
     
     func changeIndexDependOnStatus(status: Status) -> Int {
-         currentIndex = viewModel.getCurrentPlayingIndex()
+        currentIndex = viewModel.getCurrentPlayingIndex()
         let validationIndex = validateIndex(index: currentIndex , status: status)
         if validationIndex {
             switch status {
@@ -151,13 +173,7 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     func shuffle() {
-//        defer {
-//            self.cancel()
-//            let audioList = playlistItemsService.getItemsList()
-//        extractURLFromPlayListItemsAndADDToQueue(listItems: listItems)
-//        }
         playlistItemsService.shuffleAudioList()
-        
     }
     
     func pause() {
@@ -176,10 +192,14 @@ class AbstractPlayer : sharedPlayerProtocol {
         playlistItemsService.removeAllItems()
     }
     
+    func updateStreamURL(url: URL, index: Int) {
+        playlistItemsService.updateStreamURL(url: url, index: index)
+        extractURLFromPlayListItemsAndADDToQueue(listItems: self.getItemsList())
+    }
+    
     func addQueue(_ listItems: [PlaylistItem]) {
         
         playlistItemsService.addQueue(queue: listItems)
-        extractURLFromPlayListItemsAndADDToQueue(listItems: listItems)
     }
     
     func extractURLFromPlayListItemsAndADDToQueue(listItems: [PlaylistItem]) {
@@ -203,19 +223,15 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     func insetMedia(_ playlistItem: PlaylistItem, index: Int) {
-//        //
-//        playlistItemsService.insertItemToQueue(item: playlistItem,index:  index)
-//        extractURLFromPlayListItemsAndADDToQueue(listItems: playlistItemsService.getItemsList())
-////        extractURLFromPlayListItemsAndADDToQueue(listItems: [playlistItem])
-//
+        playlistItemsService.insertItemToQueue(item: playlistItem,index:  index)
     }
     
     func addMediaToQueue(_ playlistItem: PlaylistItem) {
-        //
+        
         playlistItemsService.addMediaToQueue(playlistItem: playlistItem)
     }
     
     func removeMedia(_ playlistItem: PlaylistItem) {
-//        playlistItemsService.remove(item: playlistItem)
+        playlistItemsService.remove(item: playlistItem)
     }
 }

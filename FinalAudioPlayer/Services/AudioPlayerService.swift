@@ -162,7 +162,10 @@ extension AudioPlayerService: AudioPlayerDelegate {
                                      progress _: Double,
                                      duration _: Double)
     {
+        NotificationCenter.default.post(name: Notification.Name("NotificationIdentifier"), object: nil)
+
         delegate.invoke(invocation: { $0.didStopPlaying() })
+       
     }
 
     func audioPlayerUnexpectedError(player _: AudioPlayer, error: AudioPlayerError) {

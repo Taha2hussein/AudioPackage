@@ -15,13 +15,14 @@ struct PlaylistItem: Equatable {
         case stopped
     }
     let id: String
-    let audioURL: URL
+    var audioURL: URL?
     let title: String
     let album: String
     let status: Status
     let queues: Bool
     let artist: String
     let genre: String
+    
     init(content: AudioContent, queues: Bool) {
         id = ""
         title = content.title
@@ -33,15 +34,17 @@ struct PlaylistItem: Equatable {
         self.queues = queues
     }
 
-    init(id: String ,audioURL: String, title: String, album: String, artist: String ,genre: String ,status: Status, queues: Bool) {
+    init(id: String ,audioURL: String?, title: String, album: String, artist: String ,genre: String ,status: Status, queues: Bool) {
         self.id = id
-        self.audioURL = URL(string: audioURL ?? "")!
         self.title = title
         self.album = album
         self.status = status
         self.queues = queues
         self.artist = artist
         self.genre = genre
+        if let audioURL = audioURL {
+            self.audioURL = URL(string: audioURL)
+        }
     }
 }
 
@@ -72,12 +75,23 @@ final class PlaylistItemsService {
         items.insertElement(item, at: index)
     }
 
+    func validateIndex(index: Int) -> Bool{
+        guard items.isValidIndex(index) else {
+                return false
+            }
+        return true
+    }
+    
     func addMediaToQueue(playlistItem: PlaylistItem) {
         items.append(playlistItem)
     }
     
     func addQueue(queue: [PlaylistItem]) {
         items += queue
+    }
+   
+    func updateStreamURL(url: URL, index: Int) {
+        items[index].audioURL = url
     }
     
     func removeAllItems() {
@@ -88,7 +102,6 @@ final class PlaylistItemsService {
         if let index = items.firstIndex(of: item) {
             items.remove(at: index)
         }
-        
     }
     
     func shuffleAudioList() {
@@ -109,7 +122,7 @@ final class PlaylistItemsService {
         }
         items[index] = PlaylistItem(
             id: item.id,
-            audioURL: item.audioURL.absoluteString,
+            audioURL: item.audioURL?.absoluteString,
             title: item.title,
             album: item.album,
             artist: item.artist,
