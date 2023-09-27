@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="iBc-uR-n9J">
-                                <rect key="frame" x="5" y="112" width="404" height="69"/>
+                                <rect key="frame" x="5" y="112" width="404" height="89"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6Bp-D0-d2j">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="34.5"/>
@@ -66,10 +66,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gR5-og-54K">
-                                        <rect key="frame" x="0.0" y="34.5" width="299" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="34.5" width="400" height="54.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5W-hv-tPj">
-                                                <rect key="frame" x="0.0" y="0.0" width="71" height="34.5"/>
+                                                <rect key="frame" x="0.0" y="10" width="76" height="34.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="insert"/>
                                                 <connections>
@@ -77,7 +77,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Na-Zu-06y">
-                                                <rect key="frame" x="76" y="0.0" width="71" height="34.5"/>
+                                                <rect key="frame" x="81" y="10" width="76" height="34.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
                                                 <connections>
@@ -85,7 +85,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cE-XG-LE5">
-                                                <rect key="frame" x="152" y="0.0" width="71" height="34.5"/>
+                                                <rect key="frame" x="162" y="10" width="76" height="34.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="prev"/>
                                                 <connections>
@@ -93,11 +93,19 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euh-6V-MQQ">
-                                                <rect key="frame" x="228" y="0.0" width="71" height="34.5"/>
+                                                <rect key="frame" x="243" y="10" width="76" height="34.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="shufle"/>
                                                 <connections>
                                                     <action selector="shuffleAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S5z-Qq-maB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKi-1x-PIS">
+                                                <rect key="frame" x="324" y="0.0" width="76" height="54.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="update queu"/>
+                                                <connections>
+                                                    <action selector="updateQueueAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oRV-wi-JdA"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -105,10 +113,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="sbo-nf-B0h">
-                                <rect key="frame" x="4" y="191" width="406" height="34.5"/>
+                                <rect key="frame" x="4" y="211" width="406" height="34.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7SW-lP-Mek">
-                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="129.5" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="SelectIndex"/>
                                         <connections>
@@ -116,15 +124,23 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iF9-V4-sCX">
-                                        <rect key="frame" x="170.5" y="0.0" width="89.5" height="34.5"/>
+                                        <rect key="frame" x="131.5" y="0.0" width="68.5" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="seek"/>
                                         <connections>
                                             <action selector="seekAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jmf-0k-RPp"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xi-AI-cHV">
+                                        <rect key="frame" x="202" y="0.0" width="92.5" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="remove"/>
+                                        <connections>
+                                            <action selector="removeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lcp-Io-N6j"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2T-bw-Mol">
-                                        <rect key="frame" x="262" y="0.0" width="144" height="34.5"/>
+                                        <rect key="frame" x="296.5" y="0.0" width="109.5" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Local File"/>
                                         <connections>

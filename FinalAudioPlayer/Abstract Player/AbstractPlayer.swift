@@ -75,14 +75,8 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     @objc func methodOfReceivedNotification(notification: Notification) {
-        // should handle next index from flutter
-        
-        
-        
-//                currentIndex = currentIndex + 1
-//
+
 //        self.updateStreamURL(url: URL(string: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3")!, index: 1)
-        print(currentIndex , "observedddd" )
     }
     
     
@@ -100,6 +94,7 @@ class AbstractPlayer : sharedPlayerProtocol {
         eqalizerViewModel?.enableEq(enable)
     }
     
+    ///  just used with local files
     internal func play(url: URL) {
         viewModel.playItem(with: url)
     }
@@ -148,6 +143,7 @@ class AbstractPlayer : sharedPlayerProtocol {
     
     func changeIndexDependOnStatus(status: Status) -> Int {
         currentIndex = viewModel.getCurrentPlayingIndex()
+        print(currentIndex , "currentIndexss")
         let validationIndex = validateIndex(index: currentIndex , status: status)
         if validationIndex {
             switch status {
@@ -169,7 +165,6 @@ class AbstractPlayer : sharedPlayerProtocol {
             validatorBool = (index > 0 && index < viewModel.itemsCount)
         }
         return  validatorBool
-        
     }
     
     func shuffle() {
@@ -194,11 +189,10 @@ class AbstractPlayer : sharedPlayerProtocol {
     
     func updateStreamURL(url: URL, index: Int) {
         playlistItemsService.updateStreamURL(url: url, index: index)
-        extractURLFromPlayListItemsAndADDToQueue(listItems: self.getItemsList())
+        service.queue(url: url)
     }
     
     func addQueue(_ listItems: [PlaylistItem]) {
-        
         playlistItemsService.addQueue(queue: listItems)
     }
     
@@ -227,7 +221,6 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     func addMediaToQueue(_ playlistItem: PlaylistItem) {
-        
         playlistItemsService.addMediaToQueue(playlistItem: playlistItem)
     }
     

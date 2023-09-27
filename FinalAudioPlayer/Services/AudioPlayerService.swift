@@ -7,8 +7,8 @@
 
 import AudioStreaming
 import AVFoundation
-
-protocol AudioPlayerServiceDelegate: AnyObject {
+import Combine
+protocol AudioPlayerServiceDelegate:ObservableObject ,AnyObject {
     func didStartPlaying()
     func didStopPlaying()
     func statusChanged(status: AudioPlayerState)
@@ -17,7 +17,7 @@ protocol AudioPlayerServiceDelegate: AnyObject {
 }
 
 final class AudioPlayerService {
-    var delegate = MulticastDelegate<AudioPlayerServiceDelegate>()
+    var delegate = MulticastDelegate<any AudioPlayerServiceDelegate>()
 
     private var player: AudioPlayer
     private var audioSystemResetObserver: Any?

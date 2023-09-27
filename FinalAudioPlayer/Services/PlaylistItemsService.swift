@@ -58,7 +58,6 @@ final class PlaylistItemsService {
     let protectedItemCount: Int
 
     init(initialItemsProvider: () -> [PlaylistItem]) {
-//        items = initialItemsProvider()
         protectedItemCount = items.count
     }
 

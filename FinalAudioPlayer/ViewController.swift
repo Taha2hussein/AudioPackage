@@ -14,13 +14,41 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "old", album: "huse", artist: "TjT", genre: "ee", status: .stopped, queues: false)
+        
+        let playlist2 = PlaylistItem(id: "i6d", audioURL: "", title: "new1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+        
+        
+        let playlist3 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+        
+        abstractPlayer.addQueue([playlist1,playlist2,playlist3])
     }
     
+    
+    @IBAction func updateQueueAction(_ sender: Any) {
+        abstractPlayer.cancel()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
+            var indec = 0
+            print(indec , "dssdsd")
+            self.abstractPlayer.updateStreamURL(url: URL(string: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3")!, index: indec)
+            
+            indec = indec + 1
+            print(indec , "dssdsd")
+            
+            self.abstractPlayer.updateStreamURL(url: URL(string: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: indec)
+            print(indec , "dssdsd")
+            
+        }
+    }
+    
+    /// here in cancel we remove player and then add play list again
     @IBAction func cancelAction(_ sender: Any) {
         abstractPlayer.cancel()
-    }
     
+    }
+    /// should cancel player and start again
     @IBAction func shuffleAction(_ sender: Any) {
+        abstractPlayer.cancel()
         abstractPlayer.shuffle()
     }
     
@@ -34,29 +62,22 @@ class ViewController: UIViewController {
     
     @IBAction func playAction(_ sender: Any) {
         
-        let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "old", album: "huse", artist: "TjT", genre: "ee", status: .stopped, queues: false)
-        
-        let playlist2 = PlaylistItem(id: "i6d", audioURL: "", title: "new1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-        
-        
-        let playlist3 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-        
-        abstractPlayer.addQueue([playlist1,playlist2])
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
             var indec = 0
             print(indec , "dssdsd")
             self.abstractPlayer.updateStreamURL(url: URL(string: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: indec)
+            
+            
             indec = indec + 1
             print(indec , "dssdsd")
-
+            
             self.abstractPlayer.updateStreamURL(url: URL(string: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3")!, index: indec)
             print(indec , "dssdsd")
-
+            
         }
         
     }
+    
     @IBAction func nextAction(_ sender: Any) {
         
         abstractPlayer.next()
