@@ -5,7 +5,7 @@
 //  Created by Taha Hussein on 30/08/2023.
 //
 
-import Foundation
+import UIKit
 import AudioStreaming
 enum Status {
     case next
@@ -59,27 +59,14 @@ class AbstractPlayer : sharedPlayerProtocol {
     var playlistItemsService = PlaylistItemsService(initialItemsProvider: provideInitialPlaylistItems)
     var service = AudioPlayerService()
     var viewModel: PlayerViewModel
-    
+
     init() {
         viewModel = PlayerViewModel(playlistItemsService: playlistItemsService, playerService: service)
         PlayerControls = PlayerControlsViewModel(playerService: service)
         intialzeEqalizer()
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
-        
+       
     }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func methodOfReceivedNotification(notification: Notification) {
 
-//        self.updateStreamURL(url: URL(string: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3")!, index: 1)
-    }
-    
-    
     internal func intialzeEqalizer() {
         let equaliserService = EqualizerService(playerService: service)
         eqalizerViewModel = EqualzerViewModel(equalizerService: equaliserService)
@@ -103,7 +90,6 @@ class AbstractPlayer : sharedPlayerProtocol {
         if let path = Bundle.main.path(forResource: file, ofType: ofType) {
             let url = URL(fileURLWithPath: path)
             play(url: url)
-            
         }
     }
     

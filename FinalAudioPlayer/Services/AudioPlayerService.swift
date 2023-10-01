@@ -8,7 +8,7 @@
 import AudioStreaming
 import AVFoundation
 import Combine
-protocol AudioPlayerServiceDelegate:ObservableObject ,AnyObject {
+protocol AudioPlayerServiceDelegate: ObservableObject ,AnyObject {
     func didStartPlaying()
     func didStopPlaying()
     func statusChanged(status: AudioPlayerState)
@@ -16,9 +16,10 @@ protocol AudioPlayerServiceDelegate:ObservableObject ,AnyObject {
     func metadataReceived(metadata: [String: String])
 }
 
-final class AudioPlayerService {
+ class AudioPlayerService {
     var delegate = MulticastDelegate<any AudioPlayerServiceDelegate>()
 
+    var stateClosure:((AudioPlayerState)->Void)?
     private var player: AudioPlayer
     private var audioSystemResetObserver: Any?
 
@@ -34,12 +35,12 @@ final class AudioPlayerService {
         player.muted
     }
    
-    var rate: Float {
-        player.rate
-    }
-
     var state: AudioPlayerState {
         player.state
+     }
+     
+    var rate: Float {
+        player.rate
     }
 
     init() {
@@ -153,6 +154,7 @@ extension AudioPlayerService: AudioPlayerDelegate {
     func audioPlayerDidFinishBuffering(player _: AudioPlayer, with _: AudioEntryId) {}
 
     func audioPlayerStateChanged(player _: AudioPlayer, with newState: AudioPlayerState, previous _: AudioPlayerState) {
+        stateClosure?(newState)
         delegate.invoke(invocation: { $0.statusChanged(status: newState) })
     }
 
@@ -162,7 +164,6 @@ extension AudioPlayerService: AudioPlayerDelegate {
                                      progress _: Double,
                                      duration _: Double)
     {
-        NotificationCenter.default.post(name: Notification.Name("NotificationIdentifier"), object: nil)
 
         delegate.invoke(invocation: { $0.didStopPlaying() })
        
