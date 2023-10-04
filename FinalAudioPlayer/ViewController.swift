@@ -71,9 +71,15 @@ class ViewController: UIViewController {
             indec = indec + 1
             print(indec , "dssdsd")
             
-            self.abstractPlayer.updateStreamURL(url: URL(string: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3")!, index: indec)
+            self.abstractPlayer.updateStreamURL(url: URL(string: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3")!, index: 1)
             print(indec , "dssdsd")
             
+            
+            indec = indec + 1
+            print(indec , "dssdsd")
+            
+            self.abstractPlayer.updateStreamURL(url: URL(string: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: 2)
+            print(indec , "dssdsd")
         }
         
     }
@@ -93,7 +99,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func removeAction(_ sender: Any) {
-        let playlist3 = PlaylistItem(id: "id", audioURL: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+      let playlist3 =  PlaylistItem(id: "i6d", audioURL: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3", title: "new1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
         abstractPlayer.removeMedia(playlist3)
     }
     
@@ -108,7 +114,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func palyAtIndexAction(_ sender: Any) {
-        abstractPlayer.skipToQueueItem(index: 1)
+        abstractPlayer.skipToQueueItem(index: 1 )
     }
     
     @IBAction func eqalizerAction(_ sender: Any) {

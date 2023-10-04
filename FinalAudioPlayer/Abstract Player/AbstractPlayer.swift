@@ -59,12 +59,30 @@ class AbstractPlayer : sharedPlayerProtocol {
     var playlistItemsService = PlaylistItemsService(initialItemsProvider: provideInitialPlaylistItems)
     var service = AudioPlayerService()
     var viewModel: PlayerViewModel
-
+    
     init() {
         viewModel = PlayerViewModel(playlistItemsService: playlistItemsService, playerService: service)
         PlayerControls = PlayerControlsViewModel(playerService: service)
         intialzeEqalizer()
+    
+        service.stateClosure = { state in
+        print(state , "ssssstates")
+        }
+        
+        service.urlClosure = { url in
+            let items = self.getItemsList()
+            
+            let selectedIndices = items.enumerated()   // Pair-up elements and their offsets
+                .filter { url.contains($0.element.audioURL?.absoluteString ?? "") }  // Get the ones you want
+                .map { $0.offset }
+
+            self.service.currentIndex?(selectedIndices[0])
+            print(url,"audioEntryIdaudioEntryId" , selectedIndices[0])
+        }
        
+        service.currentIndex = { index in
+            print("url index , " , index)
+        }
     }
 
     internal func intialzeEqalizer() {
