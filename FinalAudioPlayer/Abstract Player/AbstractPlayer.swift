@@ -28,6 +28,7 @@ protocol PlayerProtocol {
     func checkEqalizerEnabled() -> Bool
     func enableEq(_ enable: Bool)
     func updateStreamURL(url: URL, index: Int)
+    func addStreamURLToList(url: URL, index: Int)
     func removeAll()
     func shuffle()
     func next()
@@ -66,7 +67,7 @@ class AbstractPlayer : sharedPlayerProtocol {
         intialzeEqalizer()
     
         service.stateClosure = { state in
-        print(state , "ssssstates")
+            print(state)
         }
         
         service.urlClosure = { url in
@@ -77,11 +78,10 @@ class AbstractPlayer : sharedPlayerProtocol {
                 .map { $0.offset }
 
             self.service.currentIndex?(selectedIndices[0])
-            print(url,"audioEntryIdaudioEntryId" , selectedIndices[0])
         }
        
         service.currentIndex = { index in
-            print("url index , " , index)
+            print("url index  " , index)
         }
     }
 
@@ -147,7 +147,6 @@ class AbstractPlayer : sharedPlayerProtocol {
     
     func changeIndexDependOnStatus(status: Status) -> Int {
         currentIndex = viewModel.getCurrentPlayingIndex()
-        print(currentIndex , "currentIndexss")
         let validationIndex = validateIndex(index: currentIndex , status: status)
         if validationIndex {
             switch status {
@@ -194,6 +193,10 @@ class AbstractPlayer : sharedPlayerProtocol {
     func updateStreamURL(url: URL, index: Int) {
         playlistItemsService.updateStreamURL(url: url, index: index)
         service.queue(url: url)
+    }
+    
+    func addStreamURLToList(url: URL, index: Int) {
+        playlistItemsService.updateStreamURL(url: url, index: index)
     }
     
     func addQueue(_ listItems: [PlaylistItem]) {

@@ -49,7 +49,7 @@ final class PlayerViewModel {
 
    
     func playItem(with url: URL) {
-        playerService.queue(url: url)
+        playerService.play(url: url)
     }
     
     func getCurrentPlayingIndex() -> Int {

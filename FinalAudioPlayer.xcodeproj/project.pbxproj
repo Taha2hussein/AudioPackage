@@ -24,9 +24,9 @@
 		002341592A9E128E00095CE3 /* hipjazz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 002341572A9E128D00095CE3 /* hipjazz.wav */; };
 		0023415A2A9E128E00095CE3 /* bensound-jazzyfrenchy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 002341582A9E128E00095CE3 /* bensound-jazzyfrenchy.mp3 */; };
 		7220A2CB2ABAD87C00A778E0 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7220A2CA2ABAD87C00A778E0 /* Utility.swift */; };
+		722C77BC2AD8181E00703DF9 /* AudioStreaming in Frameworks */ = {isa = PBXBuildFile; productRef = 722C77BB2AD8181E00703DF9 /* AudioStreaming */; };
 		72355AC72AA739C1004131BE /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 72355AC42AA739C1004131BE /* Mock.json */; };
 		7271EDD32A9F76E7000B1E73 /* AbstractPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271EDD22A9F76E7000B1E73 /* AbstractPlayer.swift */; };
-		727E97C12AB85A12006CE80F /* AudioStreaming in Frameworks */ = {isa = PBXBuildFile; productRef = 727E97C02AB85A12006CE80F /* AudioStreaming */; };
 		727E97E42AB87E1E006CE80F /* MockerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727E97E32AB87E1E006CE80F /* MockerProtocols.swift */; };
 		728980392AA0A03800A3AD2E /* FinalAudioPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728980382AA0A03800A3AD2E /* FinalAudioPlayerTests.swift */; };
 		728E94F92AC06A6F0030F6C3 /* Array + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728E94F82AC06A6F0030F6C3 /* Array + Extension.swift */; };
@@ -79,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				727E97C12AB85A12006CE80F /* AudioStreaming in Frameworks */,
+				722C77BC2AD8181E00703DF9 /* AudioStreaming in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +191,7 @@
 			);
 			name = FinalAudioPlayer;
 			packageProductDependencies = (
-				727E97C02AB85A12006CE80F /* AudioStreaming */,
+				722C77BB2AD8181E00703DF9 /* AudioStreaming */,
 			);
 			productName = FinalAudioPlayer;
 			productReference = 0023412C2A9E046A00095CE3 /* FinalAudioPlayer.app */;
@@ -201,6 +201,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7289803E2AA0A03800A3AD2E /* Build configuration list for PBXNativeTarget "FinalAudioPlayerTests" */;
 			buildPhases = (
+				F80FF82075FB4C9F4833F2B0 /* [CP] Check Pods Manifest.lock */,
 				728980322AA0A03800A3AD2E /* Sources */,
 				728980332AA0A03800A3AD2E /* Frameworks */,
 				728980342AA0A03800A3AD2E /* Resources */,
@@ -244,7 +245,7 @@
 			);
 			mainGroup = 002341232A9E046A00095CE3;
 			packageReferences = (
-				727E97BF2AB85A12006CE80F /* XCRemoteSwiftPackageReference "AudioStreaming" */,
+				722C77BA2AD8181E00703DF9 /* XCRemoteSwiftPackageReference "AudioStreaming" */,
 			);
 			productRefGroup = 0023412D2A9E046A00095CE3 /* Products */;
 			projectDirPath = "";
@@ -278,6 +279,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F80FF82075FB4C9F4833F2B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FinalAudioPlayerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		002341282A9E046A00095CE3 /* Sources */ = {
@@ -585,7 +611,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		727E97BF2AB85A12006CE80F /* XCRemoteSwiftPackageReference "AudioStreaming" */ = {
+		722C77BA2AD8181E00703DF9 /* XCRemoteSwiftPackageReference "AudioStreaming" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dimitris-c/AudioStreaming.git";
 			requirement = {
@@ -596,9 +622,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		727E97C02AB85A12006CE80F /* AudioStreaming */ = {
+		722C77BB2AD8181E00703DF9 /* AudioStreaming */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 727E97BF2AB85A12006CE80F /* XCRemoteSwiftPackageReference "AudioStreaming" */;
+			package = 722C77BA2AD8181E00703DF9 /* XCRemoteSwiftPackageReference "AudioStreaming" */;
 			productName = AudioStreaming;
 		};
 /* End XCSwiftPackageProductDependency section */

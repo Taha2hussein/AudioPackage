@@ -21,18 +21,10 @@
                                 <rect key="frame" x="5" y="112" width="404" height="89"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6Bp-D0-d2j">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="315.5" height="34.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbR-uO-9AW">
-                                                <rect key="frame" x="0.0" y="0.0" width="55.5" height="34.5"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="play"/>
-                                                <connections>
-                                                    <action selector="playAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jqd-Kb-rDs"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTz-WO-Epw">
-                                                <rect key="frame" x="57.5" y="0.0" width="74" height="34.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="74" height="34.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="cancel"/>
                                                 <connections>
@@ -40,7 +32,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7d-Uw-gXL">
-                                                <rect key="frame" x="133.5" y="0.0" width="70.5" height="34.5"/>
+                                                <rect key="frame" x="76" y="0.0" width="70.5" height="34.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="pause"/>
                                                 <connections>
@@ -48,7 +40,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzx-RA-V5l">
-                                                <rect key="frame" x="206" y="0.0" width="81" height="34.5"/>
+                                                <rect key="frame" x="148.5" y="0.0" width="81" height="34.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="resume"/>
                                                 <connections>
@@ -56,7 +48,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fX-qz-6XV">
-                                                <rect key="frame" x="289" y="0.0" width="84" height="34.5"/>
+                                                <rect key="frame" x="231.5" y="0.0" width="84" height="34.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="eqalizer"/>
                                                 <connections>
@@ -115,16 +107,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="sbo-nf-B0h">
                                 <rect key="frame" x="4" y="211" width="406" height="34.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7SW-lP-Mek">
-                                        <rect key="frame" x="0.0" y="0.0" width="129.5" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="SelectIndex"/>
-                                        <connections>
-                                            <action selector="palyAtIndexAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mr0-aJ-GM8"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iF9-V4-sCX">
-                                        <rect key="frame" x="131.5" y="0.0" width="68.5" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="101.5" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="seek"/>
                                         <connections>
@@ -132,7 +116,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xi-AI-cHV">
-                                        <rect key="frame" x="202" y="0.0" width="92.5" height="34.5"/>
+                                        <rect key="frame" x="103.5" y="0.0" width="136.5" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="remove"/>
                                         <connections>
@@ -140,11 +124,48 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2T-bw-Mol">
-                                        <rect key="frame" x="296.5" y="0.0" width="109.5" height="34.5"/>
+                                        <rect key="frame" x="242" y="0.0" width="164" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Local File"/>
                                         <connections>
                                             <action selector="localFileAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zxu-Wp-vMc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3jL-bd-7tM">
+                                <rect key="frame" x="174.5" y="255.5" width="65.5" height="153"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbR-uO-9AW">
+                                        <rect key="frame" x="0.0" y="0.0" width="55.5" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="play"/>
+                                        <connections>
+                                            <action selector="playAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jqd-Kb-rDs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0q-mg-oKt">
+                                        <rect key="frame" x="0.0" y="39.5" width="63" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="play1"/>
+                                        <connections>
+                                            <action selector="play1Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DQr-r6-Z3G"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVJ-Kh-SjX">
+                                        <rect key="frame" x="0.0" y="79" width="65.5" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="play2"/>
+                                        <connections>
+                                            <action selector="play2Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z6e-BH-ieb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgA-IU-v69">
+                                        <rect key="frame" x="0.0" y="118.5" width="65.5" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="play3"/>
+                                        <connections>
+                                            <action selector="play3Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1A4-MT-DA8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -157,8 +178,10 @@
                             <constraint firstItem="sbo-nf-B0h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="8o2-8R-pbG"/>
                             <constraint firstItem="iBc-uR-n9J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bl2-42-ALE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sbo-nf-B0h" secondAttribute="trailing" constant="4" id="CPd-Kc-6fG"/>
+                            <constraint firstItem="3jL-bd-7tM" firstAttribute="top" secondItem="sbo-nf-B0h" secondAttribute="bottom" constant="10" id="LLo-d7-JAm"/>
                             <constraint firstItem="iBc-uR-n9J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="RaR-WN-did"/>
                             <constraint firstItem="iBc-uR-n9J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="UvD-Vb-IRy"/>
+                            <constraint firstItem="3jL-bd-7tM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gM3-jG-PU6"/>
                             <constraint firstItem="sbo-nf-B0h" firstAttribute="top" secondItem="iBc-uR-n9J" secondAttribute="bottom" constant="10" id="jEO-WG-yWh"/>
                         </constraints>
                     </view>
