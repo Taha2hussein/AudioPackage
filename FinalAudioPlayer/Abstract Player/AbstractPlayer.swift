@@ -21,14 +21,13 @@ protocol PlayerProtocol {
     var minimumPlaybackDuration: TimeInterval { get set }
     var currentIndex: Int { get set }
     func seek(action: SeekAction)
-    func play(url: URL)
-    func playLocalFile(file: String, ofType: String)
+    func play(url: URL, index: Int)
+    func playLocalFile(file: String, ofType: String, index: Int)
     func skipToQueueItem(index: Int)
     func update(gain: Float, for index: Int)
     func checkEqalizerEnabled() -> Bool
     func enableEq(_ enable: Bool)
     func updateStreamURL(url: URL, index: Int)
-    func addStreamURLToList(url: URL, index: Int)
     func removeAll()
     func shuffle()
     func next()
@@ -70,18 +69,19 @@ class AbstractPlayer : sharedPlayerProtocol {
             print(state)
         }
         
-        service.urlClosure = { url in
-            let items = self.getItemsList()
+        service.urlClosure = {[weak self] url in
+           
+            let items = self?.getItemsList()
             
-            let selectedIndices = items.enumerated()   // Pair-up elements and their offsets
+            let selectedIndices = items?.enumerated()   // Pair-up elements and their offsets
                 .filter { url.contains($0.element.audioURL?.absoluteString ?? "") }  // Get the ones you want
                 .map { $0.offset }
 
-            self.service.currentIndex?(selectedIndices[0])
+            self?.service.currentIndex?(selectedIndices?[0] ?? 0)
         }
-       
-        service.currentIndex = { index in
-            print("url index  " , index)
+        
+        service.currentIndex = { [weak self] index in
+            print( "playing index is" , index)
         }
     }
 
@@ -100,14 +100,15 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     ///  just used with local files
-    internal func play(url: URL) {
+    internal func play(url: URL, index: Int) {
+        playlistItemsService.updateStreamURL(url: url, index: index)
         viewModel.playItem(with: url)
     }
     
-    func playLocalFile(file: String, ofType: String) {
+    func playLocalFile(file: String, ofType: String, index: Int) {
         if let path = Bundle.main.path(forResource: file, ofType: ofType) {
             let url = URL(fileURLWithPath: path)
-            play(url: url)
+            updateStreamURL(url: url, index: index)
         }
     }
     
@@ -132,17 +133,11 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     func next() {
-        let index =  changeIndexDependOnStatus(status: .next)
-        skipToQueueItem(index:  index)
+        // update item index first then play it
     }
     
     func previous() {
-        if service.progress >= minimumPlaybackDuration {
-            self.skipToQueueItem(index: currentIndex)
-            return
-        }
-        let index = changeIndexDependOnStatus(status: .previous)
-        skipToQueueItem(index:  index)
+       // update item index first then play it
     }
     
     func changeIndexDependOnStatus(status: Status) -> Int {
@@ -193,10 +188,6 @@ class AbstractPlayer : sharedPlayerProtocol {
     func updateStreamURL(url: URL, index: Int) {
         playlistItemsService.updateStreamURL(url: url, index: index)
         service.queue(url: url)
-    }
-    
-    func addStreamURLToList(url: URL, index: Int) {
-        playlistItemsService.updateStreamURL(url: url, index: index)
     }
     
     func addQueue(_ listItems: [PlaylistItem]) {
