@@ -154,22 +154,37 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <slider opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZIz-Kh-x1T" customClass="ProgressSlider" customModule="FinalAudioPlayer" customModuleProvider="target">
+                                <rect key="frame" x="18" y="339.5" width="378" height="31"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressProgressTintColor">
+                                        <color key="value" red="0.18039215689999999" green="0.24313725489999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZIz-Kh-x1T" secondAttribute="trailing" constant="20" id="0Qh-zg-EtJ"/>
                             <constraint firstAttribute="trailing" secondItem="iBc-uR-n9J" secondAttribute="trailing" constant="5" id="1qN-Xr-WfV"/>
                             <constraint firstItem="sbo-nf-B0h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="8o2-8R-pbG"/>
                             <constraint firstItem="iBc-uR-n9J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bl2-42-ALE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sbo-nf-B0h" secondAttribute="trailing" constant="4" id="CPd-Kc-6fG"/>
+                            <constraint firstItem="ZIz-Kh-x1T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="DV8-CM-CWS"/>
                             <constraint firstItem="3jL-bd-7tM" firstAttribute="top" secondItem="sbo-nf-B0h" secondAttribute="bottom" constant="10" id="LLo-d7-JAm"/>
                             <constraint firstItem="iBc-uR-n9J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="RaR-WN-did"/>
+                            <constraint firstItem="ZIz-Kh-x1T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TlC-3w-WcR"/>
                             <constraint firstItem="iBc-uR-n9J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="UvD-Vb-IRy"/>
                             <constraint firstItem="3jL-bd-7tM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gM3-jG-PU6"/>
                             <constraint firstItem="sbo-nf-B0h" firstAttribute="top" secondItem="iBc-uR-n9J" secondAttribute="bottom" constant="10" id="jEO-WG-yWh"/>
+                            <constraint firstItem="ZIz-Kh-x1T" firstAttribute="top" secondItem="3jL-bd-7tM" secondAttribute="bottom" constant="10" id="znS-Ee-pop"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="miO-C7-MTt"/>
+                    <connections>
+                        <outlet property="progressSlider" destination="ZIz-Kh-x1T" id="5C2-mY-ba3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

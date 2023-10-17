@@ -10,6 +10,8 @@ import AVFoundation
 import AudioStreaming
 class ViewController: UIViewController {
     
+    @IBOutlet weak var progressSlider: ProgressSlider!
+    
     let abstractPlayer = AbstractPlayer.shared
     let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "old", album: "huse", artist: "TjT", genre: "ee", status: .stopped, queues: false)
     
@@ -25,6 +27,12 @@ class ViewController: UIViewController {
         abstractPlayer.addMediaToQueue(playlist2)
         abstractPlayer.addMediaToQueue(playlist3)
         abstractPlayer.addMediaToQueue(playlist4)
+        
+        // progress slider
+        abstractPlayer.PlayerControls.updateBuffer = {[weak self] buffer in
+            self?.progressSlider.progress = Float(buffer)
+             
+        }
     }
     
     

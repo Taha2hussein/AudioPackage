@@ -8,11 +8,18 @@
 import AudioStreaming
 import Foundation
 import UIKit
+import AVFAudio
 
 enum SeekAction: Equatable {
     case started
     case updateSeek(time: Float)
     case ended
+}
+
+enum RepeatMode: Equatable {
+    case none
+    case one
+    case all
 }
 
 enum ControlsEffects {
@@ -26,7 +33,7 @@ enum ControlsEffects {
 final class PlayerControlsViewModel {
     var updateContent: ((ControlsEffects) -> Void)?
     var updateProgressAndDurationTitles: ((String, String) -> Void)?
-
+    var updateBuffer: ((Double) -> Void)?
     private let playerService: AudioPlayerService
 
     private var displayLink: CADisplayLink?
@@ -118,6 +125,7 @@ final class PlayerControlsViewModel {
             let elapsed = Int(progress)
             updateProgressAndDurationTitles?("Live broadcast", timeFrom(seconds: elapsed))
         }
+        updateBuffer?(progress)
     }
 
     private func resetLabelsAndSlider() {
