@@ -21,6 +21,7 @@ class AudioPlayerService {
     var stateClosure: ((AudioPlayerState)->Void)?
     var urlClosure: ((String)->Void)?
     var currentIndex: ((Int)->Void)?
+    var finishPlaying:(()->())?
     private var player: AudioPlayer
     private var audioSystemResetObserver: Any?
     
@@ -167,6 +168,7 @@ extension AudioPlayerService: AudioPlayerDelegate {
                                      duration _: Double)
     {
         delegate.invoke(invocation: { $0.didStopPlaying() })
+        finishPlaying?()
     }
     
     func audioPlayerUnexpectedError(player _: AudioPlayer, error: AudioPlayerError) {

@@ -28,6 +28,7 @@ protocol PlayerProtocol {
     func checkEqalizerEnabled() -> Bool
     func enableEq(_ enable: Bool)
     func updateStreamURL(url: URL, index: Int)
+    func repeatAudio(repeatMode: RepeatMode)
     func removeAll()
     func shuffle()
     func next()
@@ -59,7 +60,7 @@ class AbstractPlayer : sharedPlayerProtocol {
     var playlistItemsService = PlaylistItemsService(initialItemsProvider: provideInitialPlaylistItems)
     var service = AudioPlayerService()
     var viewModel: PlayerViewModel
-    
+    private var repeatMode: RepeatMode = .none
     init() {
         viewModel = PlayerViewModel(playlistItemsService: playlistItemsService, playerService: service)
         PlayerControls = PlayerControlsViewModel(playerService: service)
@@ -81,7 +82,11 @@ class AbstractPlayer : sharedPlayerProtocol {
         }
         
         service.currentIndex = { [weak self] index in
-            print( "playing index is" , index)
+            self?.currentIndex = index
+        }
+        
+        service.finishPlaying = {[weak self] in
+            self?.repeatPlaying()
         }
     }
 
@@ -102,7 +107,6 @@ class AbstractPlayer : sharedPlayerProtocol {
     ///  just used with local files
     internal func play(url: URL, index: Int) {
         playlistItemsService.updateStreamURL(url: url, index: index)
-        viewModel.playItem(with: url)
     }
     
     func playLocalFile(file: String, ofType: String, index: Int) {
@@ -132,16 +136,44 @@ class AbstractPlayer : sharedPlayerProtocol {
         eqalizerViewModel?.update(gain: gain, for: index)
     }
     
+    func repeatAudio(repeatMode: RepeatMode) {
+        self.repeatMode = repeatMode
+    }
+    
+    func repeatPlaying() {
+        switch repeatMode {
+        case .none: break
+        case .all:
+            if currentIndex == viewModel.itemsCount - 1 {
+                self.skipToQueueItem(index: 0)
+            }
+        case .one:
+            self.skipToQueueItem(index: viewModel.getCurrentPlayingIndex())
+        }
+    }
+    
     func next() {
-        // update item index first then play it
+        switch repeatMode {
+        case .none, .all :
+            let nextIndex = changeIndexDependOnStatus(status: .next)
+            self.skipToQueueItem(index: nextIndex)
+        case .one:
+            self.seek(action: .ended)
+        }
     }
     
     func previous() {
-       // update item index first then play it
+        switch repeatMode {
+        case .none, .all :
+            let nextIndex = changeIndexDependOnStatus(status: .previous)
+            self.skipToQueueItem(index: nextIndex)
+        case .one:
+            self.seek(action: .ended)
+        }
     }
     
     func changeIndexDependOnStatus(status: Status) -> Int {
-        currentIndex = viewModel.getCurrentPlayingIndex()
+//        currentIndex = viewModel.getCurrentPlayingIndex()
         let validationIndex = validateIndex(index: currentIndex , status: status)
         if validationIndex {
             switch status {

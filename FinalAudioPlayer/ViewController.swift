@@ -11,6 +11,7 @@ import AudioStreaming
 class ViewController: UIViewController {
     
     @IBOutlet weak var progressSlider: ProgressSlider!
+    @IBOutlet weak var repatLabel: UILabel!
     
     let abstractPlayer = AbstractPlayer.shared
     let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "old", album: "huse", artist: "TjT", genre: "ee", status: .stopped, queues: false)
@@ -76,17 +77,35 @@ class ViewController: UIViewController {
     
     /// skip to index after remove queue
     @IBAction func play1Action(_ sender: Any) {
-        self.abstractPlayer.play(url: URL(string: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: 0)
+        self.abstractPlayer.play(url: URL(string: "https://www.kozco.com/tech/piano2-CoolEdit.mp3")!, index: 3)
+        self.abstractPlayer.skipToQueueItem(index: 3)
         
     }
     /// do as play1 action
     @IBAction func nextAction(_ sender: Any) {
-        //        self.abstractPlayer.play(url: URL(string: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: 3)
+        abstractPlayer.next()
+//        self.abstractPlayer.play(url: URL(string: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: 3)
     }
     /// do as play1 action
     @IBAction func prevAction(_ sender: Any) {
-        //        self.abstractPlayer.play(url: URL(string: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: 3)
+        abstractPlayer.previous()
+//        self.abstractPlayer.play(url: URL(string: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: 3)
         
+    }
+    
+    @IBAction func NoRepeatAction(_ sender: Any) {
+        abstractPlayer.repeatAudio(repeatMode: .none)
+        repatLabel.text = "None"
+    }
+    
+    @IBAction func repeat1Action(_ sender: Any) {
+        abstractPlayer.repeatAudio(repeatMode: .one)
+        repatLabel.text = "One"
+    }
+    
+    @IBAction func repeatAllAction(_ sender: Any) {
+        abstractPlayer.repeatAudio(repeatMode: .all)
+        repatLabel.text = "All"
     }
     
     @IBAction func seekAction(_ sender: Any) {
