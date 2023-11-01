@@ -26,6 +26,7 @@
 		7220A2CB2ABAD87C00A778E0 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7220A2CA2ABAD87C00A778E0 /* Utility.swift */; };
 		722C77BC2AD8181E00703DF9 /* AudioStreaming in Frameworks */ = {isa = PBXBuildFile; productRef = 722C77BB2AD8181E00703DF9 /* AudioStreaming */; };
 		72355AC72AA739C1004131BE /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 72355AC42AA739C1004131BE /* Mock.json */; };
+		726987892AF263DB009CCDDD /* MyEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726987882AF263DB009CCDDD /* MyEventHandler.swift */; };
 		7271EDD32A9F76E7000B1E73 /* AbstractPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271EDD22A9F76E7000B1E73 /* AbstractPlayer.swift */; };
 		727E97E42AB87E1E006CE80F /* MockerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727E97E32AB87E1E006CE80F /* MockerProtocols.swift */; };
 		728980392AA0A03800A3AD2E /* FinalAudioPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728980382AA0A03800A3AD2E /* FinalAudioPlayerTests.swift */; };
@@ -66,6 +67,7 @@
 		002341582A9E128E00095CE3 /* bensound-jazzyfrenchy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-jazzyfrenchy.mp3"; sourceTree = "<group>"; };
 		7220A2CA2ABAD87C00A778E0 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		72355AC42AA739C1004131BE /* Mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
+		726987882AF263DB009CCDDD /* MyEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventHandler.swift; sourceTree = "<group>"; };
 		7271EDD22A9F76E7000B1E73 /* AbstractPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractPlayer.swift; sourceTree = "<group>"; };
 		727E97E32AB87E1E006CE80F /* MockerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockerProtocols.swift; sourceTree = "<group>"; };
 		728980362AA0A03800A3AD2E /* FinalAudioPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalAudioPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +183,7 @@
 			children = (
 				728E94F82AC06A6F0030F6C3 /* Array + Extension.swift */,
 				729CA4F22ADED1E500BA778E /* sliders.swift */,
+				726987882AF263DB009CCDDD /* MyEventHandler.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				726987892AF263DB009CCDDD /* MyEventHandler.swift in Sources */,
 				728E94F92AC06A6F0030F6C3 /* Array + Extension.swift in Sources */,
 				002341542A9E0EA100095CE3 /* PlayerViewModel.swift in Sources */,
 				72DA5B572AA08BB00037E058 /* PlayerControlsViewModel.swift in Sources */,

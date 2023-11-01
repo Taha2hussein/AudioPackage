@@ -83,10 +83,16 @@ class AbstractPlayer : sharedPlayerProtocol {
         
         service.currentIndex = { [weak self] index in
             self?.currentIndex = index
+            print(index ,"current playing index")
         }
         
         service.finishPlaying = {[weak self] in
             self?.repeatPlaying()
+            print("repaet status")
+        }
+        
+        playlistItemsService.itemsClosure = {[weak self] item in
+            print(item , "item closure")
         }
     }
 

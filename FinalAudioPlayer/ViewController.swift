@@ -113,8 +113,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func removeAction(_ sender: Any) {
-        let playlist3 =  PlaylistItem(id: "i6d", audioURL: "", title: "new1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-        abstractPlayer.removeMedia(playlist3)
+        let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "old", album: "huse", artist: "TjT", genre: "ee", status: .stopped, queues: false)
+        abstractPlayer.removeMedia(playlist1)
     }
     
     @IBAction func localFileAction(_ sender: Any) {

@@ -49,7 +49,14 @@ struct PlaylistItem: Equatable {
 }
 
 final class PlaylistItemsService {
-    private var items: [PlaylistItem] = []
+    var itemsClosure:(([PlaylistItem])->())?
+    private var items: [PlaylistItem] = [] {
+        didSet {
+            print("list items changed")
+            itemsClosure?(items)
+            
+        }
+    }
 
     var itemsCount: Int {
         items.count
