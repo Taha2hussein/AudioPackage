@@ -50,11 +50,13 @@ struct PlaylistItem: Equatable {
 
 final class PlaylistItemsService {
     var itemsClosure:(([PlaylistItem])->())?
+    private var shuffleEnabled: Bool = false
+    private var tempItems: [PlaylistItem] = []
     private var items: [PlaylistItem] = [] {
         didSet {
             print("list items changed")
+//            shuffleEnabled ? print("shuffle  enabled") : (tempItems = items)
             itemsClosure?(items)
-            
         }
     }
 
@@ -79,6 +81,7 @@ final class PlaylistItemsService {
 
     func insertItemToQueue(item: PlaylistItem, index: Int) {
         items.insertElement(item, at: index)
+        tempItems.insertElement(item, at: index)
     }
 
     func validateIndex(index: Int) -> Bool{
@@ -90,32 +93,46 @@ final class PlaylistItemsService {
     
     func addMediaToQueue(playlistItem: PlaylistItem) {
         items.append(playlistItem)
+        tempItems.append(playlistItem)
     }
     
     func addQueue(queue: [PlaylistItem]) {
         items += queue
+        tempItems += queue
     }
    
     func updateStreamURL(url: URL, index: Int) {
         items[index].audioURL = url
+        tempItems[index].audioURL = url
     }
     
     func removeAllItems() {
         items.removeAll()
+        tempItems.removeAll()
     }
     
     func remove(item: PlaylistItem) {
         if let index = items.firstIndex(of: item) {
             items.remove(at: index)
         }
+        
+        if let index = tempItems.firstIndex(of: item) {
+            tempItems.remove(at: index)
+        }
     }
     
-    func shuffleAudioList() {
-        items.shuffle()
+    func shuffle(shuffleEnabled: Bool) {
+        self.shuffleEnabled = shuffleEnabled
+        shuffleEnabled ? items.shuffle() : resetShuffleToOriginalList()
+    }
+    
+    func resetShuffleToOriginalList() {
+        items = tempItems
     }
     
     func updateQueu(queue: [PlaylistItem]) {
         items += queue
+        tempItems += queue
     }
     
     func getItemsList() -> [PlaylistItem] {

@@ -54,7 +54,12 @@ class ViewController: UIViewController {
     }
     /// should cancel player and start again
     @IBAction func shuffleAction(_ sender: Any) {
-        abstractPlayer.shuffle()
+        abstractPlayer.shuffle(shuffleEnabled: true)
+    }
+    
+    @IBAction func nonShuffleAction(_ sender: Any) {
+        abstractPlayer.shuffle(shuffleEnabled: false)
+
     }
     
     @IBAction func resumeAction(_ sender: Any) {

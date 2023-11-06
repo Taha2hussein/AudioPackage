@@ -29,8 +29,8 @@ protocol PlayerProtocol {
     func enableEq(_ enable: Bool)
     func updateStreamURL(url: URL, index: Int)
     func repeatAudio(repeatMode: RepeatMode)
+    func shuffle(shuffleEnabled: Bool)
     func removeAll()
-    func shuffle()
     func next()
     func previous()
     func pause()
@@ -179,7 +179,7 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     func changeIndexDependOnStatus(status: Status) -> Int {
-//        currentIndex = viewModel.getCurrentPlayingIndex()
+        currentIndex = viewModel.getCurrentPlayingIndex()
         let validationIndex = validateIndex(index: currentIndex , status: status)
         if validationIndex {
             switch status {
@@ -203,9 +203,13 @@ class AbstractPlayer : sharedPlayerProtocol {
         return  validatorBool
     }
     
-    func shuffle() {
-        playlistItemsService.shuffleAudioList()
+    func shuffle(shuffleEnabled: Bool) {
+        playlistItemsService.shuffle(shuffleEnabled: shuffleEnabled)
+        
     }
+//    func shuffle() {
+//        playlistItemsService.shuffleAudioList()
+//    }
     
     func pause() {
         PlayerControls.togglePauseResume()
