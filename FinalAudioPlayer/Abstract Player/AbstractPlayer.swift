@@ -60,6 +60,7 @@ class AbstractPlayer : sharedPlayerProtocol {
     var playlistItemsService = PlaylistItemsService(initialItemsProvider: provideInitialPlaylistItems)
     var service = AudioPlayerService()
     var viewModel: PlayerViewModel
+    var flag = false
     private var repeatMode: RepeatMode = .none
     init() {
         viewModel = PlayerViewModel(playlistItemsService: playlistItemsService, playerService: service)
@@ -77,22 +78,25 @@ class AbstractPlayer : sharedPlayerProtocol {
             let selectedIndices = items?.enumerated()   // Pair-up elements and their offsets
                 .filter { url.contains($0.element.audioURL?.absoluteString ?? "") }  // Get the ones you want
                 .map { $0.offset }
-            
+        
             self?.service.currentIndex?(selectedIndices?[0] ?? 0)
         }
         
         service.currentIndex = { [weak self] index in
-            self?.currentIndex = index
+//            self?.currentIndex = index
+            self?.flag = false
             print(index ,"current playing index")
         }
         
         service.finishPlaying = {[weak self] in
-            self?.repeatPlaying()
+            if self?.flag == false {
+                self?.repeatPlaying()
+            }
             print("repaet status")
         }
         
-        playlistItemsService.itemsClosure = {[weak self] item in
-            print(item , "item closure")
+        playlistItemsService.itemsClosure = { _ in
+//            print(item , "item closure")
         }
     }
     
@@ -125,7 +129,8 @@ class AbstractPlayer : sharedPlayerProtocol {
     func skipToQueueItem(index: Int) {
         let validatedIndex = playlistItemsService.validateIndex(index: index)
         if validatedIndex == true {
-            currentIndex = index
+//            currentIndex = index
+            print(index, "changed index")
             viewModel.playItem(at: index)
         }
     }
@@ -148,7 +153,8 @@ class AbstractPlayer : sharedPlayerProtocol {
     
     func repeatPlaying() {
         switch repeatMode {
-        case .none: break
+        case .none:
+            self.skipToQueueItem(index: viewModel.getCurrentPlayingIndex() + 1)
         case .all:
             if currentIndex == viewModel.itemsCount - 1 {
                 self.skipToQueueItem(index: 0)
@@ -159,6 +165,7 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     func next() {
+        flag  = true
         switch repeatMode {
         case .none, .all :
             let nextIndex = changeIndexDependOnStatus(status: .next)
@@ -169,6 +176,7 @@ class AbstractPlayer : sharedPlayerProtocol {
     }
     
     func previous() {
+        flag  = true
         switch repeatMode {
         case .none, .all :
             if service.progress >= minimumPlaybackDuration {

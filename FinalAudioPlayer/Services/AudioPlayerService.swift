@@ -152,12 +152,14 @@ extension AudioPlayerService: AudioPlayerDelegate {
     func audioPlayerDidStartPlaying(player _: AudioPlayer, with audioEntry: AudioEntryId) {
         delegate.invoke(invocation: { $0.didStartPlaying() })
         urlClosure?(audioEntry.id)
+        print("urlClosure sdf")
     }
     
     func audioPlayerDidFinishBuffering(player _: AudioPlayer, with _: AudioEntryId) {}
     
     func audioPlayerStateChanged(player _: AudioPlayer, with newState: AudioPlayerState, previous _: AudioPlayerState) {
         stateClosure?(newState)
+        print("newStatess")
         delegate.invoke(invocation: { $0.statusChanged(status: newState) })
     }
     
@@ -167,6 +169,7 @@ extension AudioPlayerService: AudioPlayerDelegate {
                                      progress _: Double,
                                      duration _: Double)
     {
+        print("Finished")
         delegate.invoke(invocation: { $0.didStopPlaying() })
         finishPlaying?()
     }

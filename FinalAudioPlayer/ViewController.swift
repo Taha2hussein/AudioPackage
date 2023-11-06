@@ -73,11 +73,14 @@ class ViewController: UIViewController {
     ///   /// skip to index  after remove queu and add audio to queu
     @IBAction func playAction(_ sender: Any) {
         
-        self.abstractPlayer.updateStreamURL(url: URL(string: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: 0)
+        self.abstractPlayer.play(url: URL(string: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: 0)
         
-        self.abstractPlayer.updateStreamURL(url: URL(string: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3")!, index: 1)
+        self.abstractPlayer.play(url: URL(string: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3")!, index: 1)
         
-        self.abstractPlayer.updateStreamURL(url: URL(string: "https://p.scdn.co/mp3-preview/081447adc23dad4f79ba4f1082615d1c56edf5e1?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: 2)
+        self.abstractPlayer.play(url: URL(string: "https://p.scdn.co/mp3-preview/081447adc23dad4f79ba4f1082615d1c56edf5e1?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: 2)
+        
+        self.abstractPlayer.skipToQueueItem(index: 0)
+
     }
     
     /// skip to index after remove queue
