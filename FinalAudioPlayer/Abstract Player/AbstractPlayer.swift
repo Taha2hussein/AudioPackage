@@ -65,19 +65,19 @@ class AbstractPlayer : sharedPlayerProtocol {
         viewModel = PlayerViewModel(playlistItemsService: playlistItemsService, playerService: service)
         PlayerControls = PlayerControlsViewModel(playerService: service)
         intialzeEqalizer()
-    
+        
         service.stateClosure = { state in
             print(state)
         }
         
         service.urlClosure = {[weak self] url in
-           
+            
             let items = self?.getItemsList()
             
             let selectedIndices = items?.enumerated()   // Pair-up elements and their offsets
                 .filter { url.contains($0.element.audioURL?.absoluteString ?? "") }  // Get the ones you want
                 .map { $0.offset }
-
+            
             self?.service.currentIndex?(selectedIndices?[0] ?? 0)
         }
         
@@ -95,7 +95,7 @@ class AbstractPlayer : sharedPlayerProtocol {
             print(item , "item closure")
         }
     }
-
+    
     internal func intialzeEqalizer() {
         let equaliserService = EqualizerService(playerService: service)
         eqalizerViewModel = EqualzerViewModel(equalizerService: equaliserService)
@@ -171,8 +171,13 @@ class AbstractPlayer : sharedPlayerProtocol {
     func previous() {
         switch repeatMode {
         case .none, .all :
-            let nextIndex = changeIndexDependOnStatus(status: .previous)
-            self.skipToQueueItem(index: nextIndex)
+            if service.progress >= minimumPlaybackDuration {
+                self.skipToQueueItem(index: currentIndex)
+                return
+            }
+            let index = changeIndexDependOnStatus(status: .previous)
+            skipToQueueItem(index:  index)
+
         case .one:
             self.seek(action: .ended)
         }
@@ -207,9 +212,9 @@ class AbstractPlayer : sharedPlayerProtocol {
         playlistItemsService.shuffle(shuffleEnabled: shuffleEnabled)
         
     }
-//    func shuffle() {
-//        playlistItemsService.shuffleAudioList()
-//    }
+    //    func shuffle() {
+    //        playlistItemsService.shuffleAudioList()
+    //    }
     
     func pause() {
         PlayerControls.togglePauseResume()
