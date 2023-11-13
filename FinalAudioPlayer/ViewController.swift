@@ -79,6 +79,7 @@ class ViewController: UIViewController {
         
         self.abstractPlayer.play(url: URL(string: "https://p.scdn.co/mp3-preview/081447adc23dad4f79ba4f1082615d1c56edf5e1?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: 2)
         
+        self.abstractPlayer.play(url: URL(string: "https://p.scdn.co/mp3-preview/cab4b09c23ffc11774d879977131df9d150fcef4?cid=d8a5ed958d274c2e8ee717e6a4b0971d")!, index: 3)
         self.abstractPlayer.skipToQueueItem(index: 0)
 
     }

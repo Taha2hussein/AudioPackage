@@ -164,9 +164,9 @@ final class FinalAudioPlayerTests: XCTestCase {
         songPlayer?.removeAll()
         let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
         
-        let playlist2 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+        let playlist2 = PlaylistItem(id: "id2", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
         
-        let playlist3 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+        let playlist3 = PlaylistItem(id: "id3", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
         
         songPlayer?.addQueue([playlist1,playlist2,playlist3])
         
@@ -175,10 +175,13 @@ final class FinalAudioPlayerTests: XCTestCase {
         songPlayer?.updateStreamURL(url: thirdAudio!, index: 2)
         
         let songList = songPlayer?.getItemsList()
-        songPlayer?.shuffle()
+        songPlayer?.shuffle(shuffleEnabled: true)
         let shuffledList = songPlayer?.getItemsList()
         XCTAssertNotEqual(songList, shuffledList, "shuffled performed correctly")
-        
+        songPlayer?.shuffle(shuffleEnabled: false)
+        let revertShuffledList = songPlayer?.getItemsList()
+        XCTAssertEqual(songList, revertShuffledList, "shuffled performed correctly")
+
     }
     
     func testAddMediaToQueue() {

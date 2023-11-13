@@ -75,7 +75,7 @@ class AbstractPlayer : sharedPlayerProtocol {
             
             let items = self?.getItemsList()
             
-            let selectedIndices = items?.enumerated()   // Pair-up elements and their offsets
+            let selectedIndices = items?.enumerated()
                 .filter { url.contains($0.element.audioURL?.absoluteString ?? "") }  // Get the ones you want
                 .map { $0.offset }
         
@@ -95,8 +95,8 @@ class AbstractPlayer : sharedPlayerProtocol {
             print("repaet status")
         }
         
-        playlistItemsService.itemsClosure = { _ in
-//            print(item , "item closure")
+        playlistItemsService.itemsClosure = {item in
+            print(item , "item closure")
         }
     }
     
@@ -167,18 +167,18 @@ class AbstractPlayer : sharedPlayerProtocol {
     func next() {
         flag  = true
         switch repeatMode {
-        case .none, .all :
+        case .none, .all, .one :
             let nextIndex = changeIndexDependOnStatus(status: .next)
             self.skipToQueueItem(index: nextIndex)
-        case .one:
-            self.seek(action: .ended)
+//        case .one:
+//            self.seek(action: .ended)
         }
     }
     
     func previous() {
         flag  = true
         switch repeatMode {
-        case .none, .all :
+        case .none, .all, .one :
             if service.progress >= minimumPlaybackDuration {
                 self.skipToQueueItem(index: currentIndex)
                 return
@@ -186,11 +186,10 @@ class AbstractPlayer : sharedPlayerProtocol {
             let index = changeIndexDependOnStatus(status: .previous)
             skipToQueueItem(index:  index)
 
-        case .one:
-            self.seek(action: .ended)
+//        case .one:
+//            self.seek(action: .ended)
         }
     }
-    
     func changeIndexDependOnStatus(status: Status) -> Int {
         currentIndex = viewModel.getCurrentPlayingIndex()
         let validationIndex = validateIndex(index: currentIndex , status: status)
@@ -220,10 +219,7 @@ class AbstractPlayer : sharedPlayerProtocol {
         playlistItemsService.shuffle(shuffleEnabled: shuffleEnabled)
         
     }
-    //    func shuffle() {
-    //        playlistItemsService.shuffleAudioList()
-    //    }
-    
+
     func pause() {
         PlayerControls.togglePauseResume()
     }
