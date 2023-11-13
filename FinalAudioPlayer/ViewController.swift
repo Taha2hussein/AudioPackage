@@ -140,5 +140,21 @@ class ViewController: UIViewController {
         let navigationController = UINavigationController(rootViewController: EqualizerViewController(viewModel: abstractPlayer.eqalizerViewModel!))
         self.navigationController?.present(navigationController, animated: true, completion: nil)
     }
+    @IBAction func muteAction(_ sender: Any) {
+        abstractPlayer.toggleMute()
+    }
+    
+    @IBAction func unMuteAction(_ sender: Any) {
+        abstractPlayer.toggleMute()
+
+    }
+    @IBAction func rateAction(_ sender: UISlider) {
+        abstractPlayer.updateRate(value: Double(sender.value))
+
+    }
+    @IBAction func volumeAction(_ sender: UISlider) {
+        abstractPlayer.updateVolume(value: Double(sender.value))
+    }
+    
 }
 

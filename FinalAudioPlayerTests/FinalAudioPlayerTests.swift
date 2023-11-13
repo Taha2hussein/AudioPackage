@@ -88,52 +88,52 @@ final class FinalAudioPlayerTests: XCTestCase {
         XCTAssertEqual(songPlayer?.checkEqalizerEnabled() , true , "eqalizer should not enabled ")
     }
     
-        func testNextAudio() {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-                
-                let playlist2 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-                
-                let playlist3 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-                
-                self.songPlayer?.addQueue([playlist1,playlist2,playlist3])
-                
-                self.songPlayer?.play(url: self.firstAudio!, index: 0)
-                let currentAudio = self.songPlayer?.currentIndex ?? 0
-                XCTAssertEqual(currentAudio, 0, "Next audio not played correctly.")
-                
-                self.songPlayer?.play(url: self.secondAudio!, index: 1)
-                let currentAudio1 = self.songPlayer?.currentIndex ?? 0
-                // 5. Assert that the current audio is the second audio
-                XCTAssertEqual(currentAudio1, 1, "Next audio not played correctly.")
-                
-                // 6. Call the nextAudio() method again
-                self.songPlayer?.play(url: self.thirdAudio!, index: 2)
-                let currentAudio2 = self.songPlayer?.currentIndex ?? 0
-                // 7. Assert that the current audio is the third audio
-                XCTAssertEqual(currentAudio2, 2, "Next audio not played correctly.")
-            }
-        }
-    
-        func testPreviousAudio() {
-            let playlist1 = PlaylistItem(id: "id", audioURL: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-    
-            let playlist2 = PlaylistItem(id: "id", audioURL: "https://p.scdn.co/mp3-preview/081447adc23dad4f79ba4f1082615d1c56edf5e1?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-    
-            let playlist3 = PlaylistItem(id: "id", audioURL: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-    
-            songPlayer?.addQueue([playlist1,playlist2,playlist3])
-            songPlayer?.skipToQueueItem(index: 0)
-            songPlayer?.next()
-            songPlayer?.next()
-            songPlayer?.previous()
-            let currentAudio = songPlayer?.currentIndex ?? 0
+    func testNextAudio() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+            
+            let playlist2 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+            
+            let playlist3 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+            
+            self.songPlayer?.addQueue([playlist1,playlist2,playlist3])
+            
+            self.songPlayer?.play(url: self.firstAudio!, index: 0)
+            let currentAudio = self.songPlayer?.currentIndex ?? 0
+            XCTAssertEqual(currentAudio, 0, "Next audio not played correctly.")
+            
+            self.songPlayer?.play(url: self.secondAudio!, index: 1)
+            let currentAudio1 = self.songPlayer?.currentIndex ?? 0
+            // 5. Assert that the current audio is the second audio
+            XCTAssertEqual(currentAudio1, 1, "Next audio not played correctly.")
+            
+            // 6. Call the nextAudio() method again
+            self.songPlayer?.play(url: self.thirdAudio!, index: 2)
+            let currentAudio2 = self.songPlayer?.currentIndex ?? 0
             // 7. Assert that the current audio is the third audio
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-                XCTAssertEqual(currentAudio, 1, "Next audio not played correctly.")
-                self.expectation.fulfill()
-            }
+            XCTAssertEqual(currentAudio2, 2, "Next audio not played correctly.")
         }
+    }
+    
+    func testPreviousAudio() {
+        let playlist1 = PlaylistItem(id: "id", audioURL: "https://p.scdn.co/mp3-preview/67b51d90ffddd6bb3f095059997021b589845f81?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+        
+        let playlist2 = PlaylistItem(id: "id", audioURL: "https://p.scdn.co/mp3-preview/081447adc23dad4f79ba4f1082615d1c56edf5e1?cid=d8a5ed958d274c2e8ee717e6a4b0971d", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+        
+        let playlist3 = PlaylistItem(id: "id", audioURL: "https://ms18.sm3na.com/140/Sm3na_com_69335.mp3", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+        
+        songPlayer?.addQueue([playlist1,playlist2,playlist3])
+        songPlayer?.skipToQueueItem(index: 0)
+        songPlayer?.next()
+        songPlayer?.next()
+        songPlayer?.previous()
+        let currentAudio = songPlayer?.currentIndex ?? 0
+        // 7. Assert that the current audio is the third audio
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+            XCTAssertEqual(currentAudio, 1, "Next audio not played correctly.")
+            self.expectation.fulfill()
+        }
+    }
     
     func testSeek() {
         songPlayer?.playLocalFile(file: "hipjazz", ofType: "wav", index: 0)
@@ -160,6 +160,27 @@ final class FinalAudioPlayerTests: XCTestCase {
         XCTAssertEqual(currentAudio, 2, "Next audio not played correctly.")
     }
     
+    func testMute() {
+        songPlayer?.playLocalFile(file: "hipjazz", ofType: "wav", index: 0)
+        self.songPlayer?.toggleMute()
+        XCTAssertEqual(songPlayer?.service.muted, true, "audio should be muted")
+        self.expectation.fulfill()
+    }
+    
+    func testRate() {
+        songPlayer?.playLocalFile(file: "hipjazz", ofType: "wav", index: 0)
+        self.songPlayer?.updateRate(value: 10.0)
+        XCTAssertEqual(songPlayer?.service.rate, 10.0, "rate should be 10")
+        self.expectation.fulfill()
+    }
+    
+    func testVolume() {
+        songPlayer?.playLocalFile(file: "hipjazz", ofType: "wav", index: 0)
+        self.songPlayer?.updateVolume(value: 0.2)
+        XCTAssertEqual(songPlayer?.service.volume, 0.2, "volume should be 8")
+        self.expectation.fulfill()
+    }
+    
     func testshuffle() {
         songPlayer?.removeAll()
         let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
@@ -181,7 +202,7 @@ final class FinalAudioPlayerTests: XCTestCase {
         songPlayer?.shuffle(shuffleEnabled: false)
         let revertShuffledList = songPlayer?.getItemsList()
         XCTAssertEqual(songList, revertShuffledList, "shuffled performed correctly")
-
+        
     }
     
     func testAddMediaToQueue() {
@@ -204,11 +225,11 @@ final class FinalAudioPlayerTests: XCTestCase {
     
     func testUpdateQueue() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-        self.songPlayer?.removeAll()
-        let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-        
-        let playlist2 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
-        
+            self.songPlayer?.removeAll()
+            let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+            
+            let playlist2 = PlaylistItem(id: "id", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+            
             self.songPlayer?.addQueue([playlist1,playlist2])
             let songsCount = self.songPlayer?.getCurrentQueueCount()
             XCTAssertEqual(songsCount, 2, "media queue should be two")

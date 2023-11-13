@@ -86,12 +86,15 @@ final class PlayerControlsViewModel {
         }
     }
 
-    func update(rate: Float, updater: (Float) -> Void) {
+    func updateRate(rate: Double) {
         let rate = round(rate / 0.5) * 0.5
-        playerService.update(rate: rate)
-        updater(rate)
+        playerService.updateRate(rate: Float(rate))
     }
 
+    func updateVolume(value: Double) {
+        playerService.updateVolume(value: Float(value))
+    }
+    
     private func startDisplayLink() {
         displayLink?.invalidate()
         displayLink = nil

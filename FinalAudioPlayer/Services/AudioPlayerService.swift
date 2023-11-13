@@ -45,6 +45,14 @@ class AudioPlayerService {
         player.rate
     }
     
+    var volume: Float {
+        player.volume
+    }
+    
+    var muted: Bool {
+        player.muted
+    }
+    
     init() {
         player = AudioPlayer(configuration: .init(enableLogs: true))
         player.delegate = self
@@ -79,8 +87,12 @@ class AudioPlayerService {
         player.muted = !player.muted
     }
     
-    func update(rate: Float) {
+    func updateRate(rate: Float) {
         player.rate = rate
+    }
+    
+    func updateVolume(value: Float) {
+        player.volume = value
     }
     
     func add(_ node: AVAudioNode) {

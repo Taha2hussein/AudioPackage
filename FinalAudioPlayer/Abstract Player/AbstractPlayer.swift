@@ -29,7 +29,10 @@ protocol PlayerProtocol {
     func enableEq(_ enable: Bool)
     func updateStreamURL(url: URL, index: Int)
     func repeatAudio(repeatMode: RepeatMode)
+    func updateRate(value: Double)
+    func updateVolume(value: Double)
     func shuffle(shuffleEnabled: Bool)
+    func toggleMute()
     func removeAll()
     func next()
     func previous()
@@ -228,6 +231,10 @@ class AbstractPlayer : sharedPlayerProtocol {
         PlayerControls.togglePauseResume()
     }
     
+    func toggleMute() {
+        PlayerControls.toggleMute()
+    }
+    
     func cancel() {
         PlayerControls.stop()
     }
@@ -265,6 +272,14 @@ class AbstractPlayer : sharedPlayerProtocol {
         PlayerControls.seek(action: action)
     }
     
+    func updateRate(value: Double) {
+        PlayerControls.updateRate(rate: value)
+   }
+    
+    func updateVolume(value: Double) {
+        PlayerControls.updateVolume(value: value)
+    }
+
     func insetMedia(_ playlistItem: PlaylistItem, index: Int) {
         playlistItemsService.insertItemToQueue(item: playlistItem,index:  index)
     }
