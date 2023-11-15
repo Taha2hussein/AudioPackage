@@ -49,7 +49,8 @@ struct PlaylistItem: Equatable {
 }
 
 final class PlaylistItemsService {
-    var itemsClosure:(([PlaylistItem])->())?
+    var itemsClosure:(([PlaylistItem])-> ())?
+    var shuffleStatus:((Bool)-> ())?
     private var shuffleEnabled: Bool = false
     private var tempItems: [PlaylistItem] = []
     private var items: [PlaylistItem] = [] {
@@ -101,6 +102,18 @@ final class PlaylistItemsService {
         tempItems += queue
     }
    
+    func removeSubrange(startIndex: Int, endIndex: Int) {
+        items.removeSubrange(startIndex..<endIndex)
+        tempItems.removeSubrange(startIndex..<endIndex)
+
+    }
+    
+    func insert(array: [PlaylistItem], index: Int) {
+        items.insert(contentsOf: array, at: index)
+        tempItems.insert(contentsOf: array, at: index)
+
+    }
+    
     func updateStreamURL(url: URL, index: Int) {
         items[index].audioURL = url
         tempItems[index].audioURL = url
@@ -124,6 +137,7 @@ final class PlaylistItemsService {
     func shuffle(shuffleEnabled: Bool) {
         self.shuffleEnabled = shuffleEnabled
         shuffleEnabled ? items.shuffle() : resetShuffleToOriginalList()
+        shuffleStatus?(shuffleEnabled)
     }
     
     func resetShuffleToOriginalList() {

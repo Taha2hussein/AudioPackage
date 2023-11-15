@@ -7,6 +7,7 @@
 
 import UIKit
 import AudioStreaming
+import MediaPlayer
 enum Status {
     case next
     case previous
@@ -51,6 +52,8 @@ protocol PlayerListProtocol {
     func insetMedia(_ playlistItem: PlaylistItem , index: Int)
     func removeMedia(_ playlistItem: PlaylistItem)
     func addMediaToQueue(_ playlistItem: PlaylistItem)
+    func removeSubrange(startIndex: Int, endIndex: Int)
+    func insert(contentsOf: [PlaylistItem], at: Int)
 }
 protocol sharedPlayerProtocol: PlayerProtocol,PlayerListProtocol {}
 
@@ -65,11 +68,12 @@ class AbstractPlayer : sharedPlayerProtocol {
     var viewModel: PlayerViewModel
     var flag = false
     private var repeatMode: RepeatMode = .none
+    
     init() {
         viewModel = PlayerViewModel(playlistItemsService: playlistItemsService, playerService: service)
         PlayerControls = PlayerControlsViewModel(playerService: service)
         intialzeEqalizer()
-        
+        configureRemoteCommandCenter()
         service.stateClosure = { state in
             print(state)
         }
@@ -81,12 +85,12 @@ class AbstractPlayer : sharedPlayerProtocol {
             let selectedIndices = items?.enumerated()
                 .filter { url.contains($0.element.audioURL?.absoluteString ?? "") }  // Get the ones you want
                 .map { $0.offset }
-        
+            
             self?.service.currentIndex?(selectedIndices?[0] ?? 0)
         }
         
         service.currentIndex = { [weak self] index in
-//            self?.currentIndex = index
+            //            self?.currentIndex = index
             self?.flag = false
             print(index ,"current playing index")
         }
@@ -101,6 +105,79 @@ class AbstractPlayer : sharedPlayerProtocol {
         playlistItemsService.itemsClosure = {item in
             print(item , "item closure")
         }
+        
+        playlistItemsService.shuffleStatus = { shuffleStatus in
+            print(shuffleStatus , "shuffleStatus")
+        }
+    }
+    
+    func configureRemoteCommandCenter() {
+        let commandCenter = MPRemoteCommandCenter.shared()
+        
+        commandCenter.playCommand.addTarget { [weak self] _ in
+            //            self?.player?.play()
+            self?.skipToQueueItem(index: self?.currentIndex ?? 0)
+            return .success
+        }
+        
+        commandCenter.pauseCommand.addTarget { [weak self] _ in
+            self?.pause()
+            return .success
+        }
+        
+        commandCenter.togglePlayPauseCommand.addTarget { [weak self] _ in
+            self?.pause()
+            return .success
+            
+        }
+        
+        commandCenter.nextTrackCommand.addTarget { [weak self] _ in
+            self?.next()
+            return .success
+        }
+        
+        commandCenter.previousTrackCommand.addTarget { [weak self] _ in
+            self?.previous()
+            return .success
+        }
+        updateNowPlayingInfo()
+        //        commandCenter.seekForwardCommand.addTarget { [weak self] _ in
+        //            self?.seek(action: .updateSeek(time: ))
+        //            return .success
+        //        }
+        
+        // You can add more remote commands as needed
+        
+        // Ensure the app continues to play audio in the background
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Error setting up audio session: \(error.localizedDescription)")
+        }
+    }
+    
+    
+    func updateNowPlayingInfo() {
+        var nowPlayingInfo = [String: Any]()
+        
+        // Set the title, artist, and album art in nowPlayingInfo
+        
+        //           if let title = audioPlayer?.url?.lastPathComponent {
+        nowPlayingInfo[MPMediaItemPropertyTitle] = "SDDDDD"
+        //           }
+        
+        //           if let artist = "Your Artist Name" {
+        nowPlayingInfo[MPMediaItemPropertyArtist] = "Taha hussein"
+        //           }
+        
+        if let albumArt = UIImage(named: "Rectangle 79") {
+            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: albumArt.size, requestHandler: { (size) -> UIImage in
+                return albumArt
+            })
+        }
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
     
     internal func intialzeEqalizer() {
@@ -132,7 +209,7 @@ class AbstractPlayer : sharedPlayerProtocol {
     func skipToQueueItem(index: Int) {
         let validatedIndex = playlistItemsService.validateIndex(index: index)
         if validatedIndex == true {
-//            currentIndex = index
+            //            currentIndex = index
             print(index, "changed index")
             viewModel.playItem(at: index)
         }
@@ -173,8 +250,8 @@ class AbstractPlayer : sharedPlayerProtocol {
         case .none, .all, .one :
             let nextIndex = changeIndexDependOnStatus(status: .next)
             self.skipToQueueItem(index: nextIndex)
-//        case .one:
-//            self.seek(action: .ended)
+            //        case .one:
+            //            self.seek(action: .ended)
         }
     }
     
@@ -188,9 +265,9 @@ class AbstractPlayer : sharedPlayerProtocol {
             }
             let index = changeIndexDependOnStatus(status: .previous)
             skipToQueueItem(index:  index)
-
-//        case .one:
-//            self.seek(action: .ended)
+            
+            //        case .one:
+            //            self.seek(action: .ended)
         }
     }
     func changeIndexDependOnStatus(status: Status) -> Int {
@@ -222,7 +299,7 @@ class AbstractPlayer : sharedPlayerProtocol {
         playlistItemsService.shuffle(shuffleEnabled: shuffleEnabled)
         
     }
-
+    
     func pause() {
         PlayerControls.togglePauseResume()
     }
@@ -260,6 +337,14 @@ class AbstractPlayer : sharedPlayerProtocol {
         }
     }
     
+    func removeSubrange(startIndex: Int, endIndex: Int) {
+        playlistItemsService.removeSubrange(startIndex: startIndex, endIndex: endIndex)
+    }
+    
+    func insert(contentsOf: [PlaylistItem], at: Int) {
+        playlistItemsService.insert(array: contentsOf, index: at)
+    }
+    
     func getItemsList() -> [PlaylistItem] {
         return playlistItemsService.getItemsList()
     }
@@ -274,12 +359,12 @@ class AbstractPlayer : sharedPlayerProtocol {
     
     func updateRate(value: Double) {
         PlayerControls.updateRate(rate: value)
-   }
+    }
     
     func updateVolume(value: Double) {
         PlayerControls.updateVolume(value: value)
     }
-
+    
     func insetMedia(_ playlistItem: PlaylistItem, index: Int) {
         playlistItemsService.insertItemToQueue(item: playlistItem,index:  index)
     }
@@ -292,3 +377,12 @@ class AbstractPlayer : sharedPlayerProtocol {
         playlistItemsService.remove(item: playlistItem)
     }
 }
+
+
+//func configureNowPlayingInfoCenter(title: String, artist: String) {
+//       var nowPlayingInfo = [String : Any]()
+//       nowPlayingInfo[MPMediaItemPropertyTitle] = title
+//       nowPlayingInfo[MPMediaItemPropertyArtist] = artist
+//
+//       MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+//   }
