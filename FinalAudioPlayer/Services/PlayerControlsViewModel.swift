@@ -34,6 +34,8 @@ final class PlayerControlsViewModel {
     var updateContent: ((ControlsEffects) -> Void)?
     var updateProgressAndDurationTitles: ((String, String) -> Void)?
     var updateBuffer: ((Double) -> Void)?
+    var totdalDuration: ((Double) -> Void)?
+    var currentTime: ((Double) -> Void)?
     private let playerService: AudioPlayerService
 
     private var displayLink: CADisplayLink?
@@ -78,6 +80,7 @@ final class PlayerControlsViewModel {
             seekTime = 0
         case let .updateSeek(time):
             seekTime = time
+            playerService.seek(at: seekTime)
         case .ended:
             isScrubbing = false
             if playerService.duration > 0 {
@@ -129,6 +132,8 @@ final class PlayerControlsViewModel {
             updateProgressAndDurationTitles?("Live broadcast", timeFrom(seconds: elapsed))
         }
         updateBuffer?(progress)
+        totdalDuration?(duration)
+        currentTime?(progress)
     }
 
     private func resetLabelsAndSlider() {

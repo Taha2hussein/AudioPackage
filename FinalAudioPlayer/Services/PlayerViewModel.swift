@@ -6,7 +6,6 @@
 //
 
 import AudioStreaming
-import Foundation
 import UIKit
 
 enum ReloadAction {
@@ -17,18 +16,17 @@ enum ReloadAction {
 final class PlayerViewModel {
     private var playerService: AudioPlayerService
     private let playlistItemsService: PlaylistItemsService
-//    private var equaliserService: EqualizerService
-
-//    private let routeTo: (AppCoordinator.Route) -> Void
+    private let backgroundService: BackgroundService
     private var currentPlayingItemIndex: Int?
 
     var reloadContent: ((ReloadAction) -> Void)?
 
     init(playlistItemsService: PlaylistItemsService,
-         playerService: AudioPlayerService)
+         playerService: AudioPlayerService, backgroundService: BackgroundService)
     {
         self.playlistItemsService = playlistItemsService
         self.playerService = playerService
+        self.backgroundService = backgroundService
         self.playerService.delegate.add(delegate: self)
     }
 
@@ -36,11 +34,11 @@ final class PlayerViewModel {
         playlistItemsService.itemsCount
     }
 
-    func add(id: String , title: String , album: String , artist: String ,genre: String , url: String, index: Int) {
+    func add(id: String , title: String , album: String , artist: String ,genre: String , url: String, index: Int,cover: String) {
         let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         _ = detector.firstMatch(in: url, options: [], range: NSRange(location: 0, length: url.utf16.count))
 
-        playlistItemsService.insertItemToQueue(item: PlaylistItem(id: id, audioURL: url, title: title, album: album, artist: artist, genre: genre, status: .stopped, queues: false), index: index)
+        playlistItemsService.insertItemToQueue(item: PlaylistItem(id: id, audioURL: url, title: title, album: album, artist: artist, genre: genre, status: .stopped, queues: false, cover: cover), index: index)
     }
 
     func item(at indexPath: Int) -> PlaylistItem? {
@@ -87,6 +85,9 @@ extension PlayerViewModel: AudioPlayerServiceDelegate {
         case .playing:
             playlistItemsService.setStatus(for: item, status: .playing)
             reloadContent?(.item(IndexPath(item: item, section: 0)))
+            if let item = self.item(at: item) {
+                backgroundService.updateMetadataContent(item: item)
+            }
         case .paused:
             playlistItemsService.setStatus(for: item, status: .paused)
             reloadContent?(.item(IndexPath(item: item, section: 0)))

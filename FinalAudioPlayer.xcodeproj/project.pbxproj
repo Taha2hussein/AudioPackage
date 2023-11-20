@@ -32,6 +32,8 @@
 		728980392AA0A03800A3AD2E /* FinalAudioPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728980382AA0A03800A3AD2E /* FinalAudioPlayerTests.swift */; };
 		728E94F92AC06A6F0030F6C3 /* Array + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728E94F82AC06A6F0030F6C3 /* Array + Extension.swift */; };
 		729CA4F32ADED1E500BA778E /* sliders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729CA4F22ADED1E500BA778E /* sliders.swift */; };
+		72A4CA612B04CF53002FB6AE /* BackgroundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A4CA602B04CF53002FB6AE /* BackgroundService.swift */; };
+		72A4CA632B04D75B002FB6AE /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A4CA622B04D75B002FB6AE /* UIImage+Extension.swift */; };
 		72D4D40B2AAF0ACF0076CDC8 /* Valiadtion Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D4D40A2AAF0ACF0076CDC8 /* Valiadtion Extension.swift */; };
 		72DA5B572AA08BB00037E058 /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DA5B562AA08BB00037E058 /* PlayerControlsViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,8 @@
 		728980382AA0A03800A3AD2E /* FinalAudioPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalAudioPlayerTests.swift; sourceTree = "<group>"; };
 		728E94F82AC06A6F0030F6C3 /* Array + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Extension.swift"; sourceTree = "<group>"; };
 		729CA4F22ADED1E500BA778E /* sliders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sliders.swift; sourceTree = "<group>"; };
+		72A4CA602B04CF53002FB6AE /* BackgroundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundService.swift; sourceTree = "<group>"; };
+		72A4CA622B04D75B002FB6AE /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		72D4D40A2AAF0ACF0076CDC8 /* Valiadtion Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Valiadtion Extension.swift"; sourceTree = "<group>"; };
 		72DA5B562AA08BB00037E058 /* PlayerControlsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControlsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +150,7 @@
 				002341472A9E076500095CE3 /* MulticastDelegate.swift */,
 				002341482A9E076500095CE3 /* PlaylistItemsService.swift */,
 				72D4D40A2AAF0ACF0076CDC8 /* Valiadtion Extension.swift */,
+				72A4CA602B04CF53002FB6AE /* BackgroundService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				728E94F82AC06A6F0030F6C3 /* Array + Extension.swift */,
 				729CA4F22ADED1E500BA778E /* sliders.swift */,
 				726987882AF263DB009CCDDD /* MyEventHandler.swift */,
+				72A4CA622B04D75B002FB6AE /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 				726987892AF263DB009CCDDD /* MyEventHandler.swift in Sources */,
 				728E94F92AC06A6F0030F6C3 /* Array + Extension.swift in Sources */,
 				002341542A9E0EA100095CE3 /* PlayerViewModel.swift in Sources */,
+				72A4CA612B04CF53002FB6AE /* BackgroundService.swift in Sources */,
 				72DA5B572AA08BB00037E058 /* PlayerControlsViewModel.swift in Sources */,
 				002341552A9E0EA100095CE3 /* EqualizerViewController.swift in Sources */,
 				002341342A9E046A00095CE3 /* ViewController.swift in Sources */,
@@ -313,6 +320,7 @@
 				7271EDD32A9F76E7000B1E73 /* AbstractPlayer.swift in Sources */,
 				0023414E2A9E076500095CE3 /* AudioPlayerService.swift in Sources */,
 				002341322A9E046A00095CE3 /* SceneDelegate.swift in Sources */,
+				72A4CA632B04D75B002FB6AE /* UIImage+Extension.swift in Sources */,
 				729CA4F32ADED1E500BA778E /* sliders.swift in Sources */,
 				0023414B2A9E076500095CE3 /* MulticastDelegate.swift in Sources */,
 			);

@@ -14,14 +14,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var repatLabel: UILabel!
     
     let abstractPlayer = AbstractPlayer.shared
-    let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "old", album: "huse", artist: "TjT", genre: "ee", status: .stopped, queues: false)
+    let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "111", album: "huse", artist: "1111", genre: "ee", status: .stopped, queues: false,cover: "https://www.gstatic.com/webp/gallery3/1.sm.png")
     
-    let playlist2 = PlaylistItem(id: "id2", audioURL: "", title: "new1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+    let playlist2 = PlaylistItem(id: "id2", audioURL: "", title: "222", album: "huse", artist: "2222", genre: "ee", status: .stopped, queues: false, cover: "https://via.placeholder.com/150/0000FF/808080?Text=PAKAINFO.com")
     
-    let playlist3 = PlaylistItem(id: "id3", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+    let playlist3 = PlaylistItem(id: "3333", audioURL: "", title: "333", album: "huse", artist: "333", genre: "ee", status: .stopped, queues: false, cover: "https://via.placeholder.com/150/FF0000/FFFFFF?Text=yttags.com")
     
     
-    let playlist4 = PlaylistItem(id: "id4", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+    let playlist4 = PlaylistItem(id: "id4", audioURL: "", title: "444", album: "huse", artist: "4444", genre: "ee", status: .stopped, queues: false, cover: "https://via.placeholder.com/150/FFFF00/000000?Text=google.com")
     override func viewDidLoad() {
         super.viewDidLoad()
         abstractPlayer.addMediaToQueue(playlist1)
@@ -30,12 +30,11 @@ class ViewController: UIViewController {
         abstractPlayer.addMediaToQueue(playlist4)
         
         // progress slider
-        abstractPlayer.PlayerControls.updateBuffer = {[weak self] buffer in
+        abstractPlayer.playerControls.updateBuffer = {[weak self] buffer in
             self?.progressSlider.progress = Float(buffer)
              
         }
     }
-    
     
     @IBAction func updateQueueAction(_ sender: Any) {
         // remove list
@@ -122,7 +121,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func removeAction(_ sender: Any) {
-        let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "old", album: "huse", artist: "TjT", genre: "ee", status: .stopped, queues: false)
+        let playlist1 = PlaylistItem(id: "id", audioURL: "", title: "old", album: "huse", artist: "TjT", genre: "ee", status: .stopped, queues: false, cover: "https://via.placeholder.com/150/000000/FFFFFF/?text=y2meta.com")
         abstractPlayer.removeMedia(playlist1)
     }
     
@@ -131,7 +130,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func insetAction(_ sender: Any) {
-        let playlist3 = PlaylistItem(id: "idinserted", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false)
+        let playlist3 = PlaylistItem(id: "idinserted", audioURL: "", title: "TA1", album: "huse", artist: "TT", genre: "ee", status: .stopped, queues: false, cover: "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png")
         abstractPlayer.insetMedia(playlist3, index: 1)
     }
     
